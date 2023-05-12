@@ -107,4 +107,4 @@ theme: fluid
 deploy:
   type: git
   repo: https://github.com/akiaki1996/akiaki1996.github.io.git
-  branch: master
+  branch: deployment
