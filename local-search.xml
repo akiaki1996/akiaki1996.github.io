@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>录播姬服务器配置</title>
+    <link href="/2023/05/16/%E5%BD%95%E6%92%AD%E5%A7%AC%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/"/>
+    <url>/2023/05/16/%E5%BD%95%E6%92%AD%E5%A7%AC%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="陈琳录播姬服务器配置说明"><a href="#陈琳录播姬服务器配置说明" class="headerlink" title="陈琳录播姬服务器配置说明"></a>陈琳录播姬服务器配置说明</h1><h2 id="b站直播录制"><a href="#b站直播录制" class="headerlink" title="b站直播录制"></a>b站直播录制</h2><p>两者均支持webui<br><a href="https://github.com/acgnhiki/blrec">blrec</a> 2233<br>不会断点，但是需要更改礼物信息（&#x2F;&#x2F;1000）<br><a href="https://github.com/BililiveRecorder/BililiveRecorder">bililiverecorder</a> 2356<br>docker配置<br>打开相关端口</p><h2 id="口袋48录制"><a href="#口袋48录制" class="headerlink" title="口袋48录制"></a>口袋48录制</h2><p>linux需使用vnc图形操作<br><a href="https://github.com/duan602728596/48tools">48tools</a></p><p>下载linux在服务器解压<br>chomod chrome-sandbox，授权chrome sandbox才可以使用</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2023陈琳pk汇总</title>
     <link href="/2023/05/15/2023%E9%99%88%E7%90%B3pk%E6%B1%87%E6%80%BB/"/>
     <url>/2023/05/15/2023%E9%99%88%E7%90%B3pk%E6%B1%87%E6%80%BB/</url>
