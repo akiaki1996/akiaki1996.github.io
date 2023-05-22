@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>2022总选自投</title>
+    <link href="/2023/05/22/2022%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/"/>
+    <url>/2023/05/22/2022%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="2022年SNH48青春盛典暨总选自投份额"><a href="#2022年SNH48青春盛典暨总选自投份额" class="headerlink" title="2022年SNH48青春盛典暨总选自投份额"></a>2022年SNH48青春盛典暨总选自投份额</h1><p>记录下人生中的第一次总选投票，一票35元。</p><p><img src="/2023/05/22/2022%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/2022akivotes.jpg"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>录播姬服务器配置</title>
     <link href="/2023/05/16/%E5%BD%95%E6%92%AD%E5%A7%AC%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/"/>
     <url>/2023/05/16/%E5%BD%95%E6%92%AD%E5%A7%AC%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/</url>
@@ -27,7 +40,7 @@
     <link href="/2023/05/15/2023%E9%99%88%E7%90%B3pk%E6%B1%87%E6%80%BB/"/>
     <url>/2023/05/15/2023%E9%99%88%E7%90%B3pk%E6%B1%87%E6%80%BB/</url>
     
-    <content type="html"><![CDATA[<h1 id="2023年陈琳pk记录"><a href="#2023年陈琳pk记录" class="headerlink" title="2023年陈琳pk记录"></a>2023年陈琳pk记录</h1><p>仅作为记录，希望今年不会事与愿违</p><h2 id="pk-总额"><a href="#pk-总额" class="headerlink" title="pk 总额"></a>pk 总额</h2><table><thead><tr><th align="left">时间</th><th align="center">金额</th><th align="right">人数</th></tr></thead><tbody><tr><td align="left">5.1-5.2</td><td align="center">22237.90</td><td align="right">119</td></tr><tr><td align="left">5.13-5.14</td><td align="center">15616.80</td><td align="right">114</td></tr></tbody></table><div style="width: 90%;margin: 0 auto">    <canvas id="chart9980" style="height: 300px"></canvas></div><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script><script type="text/javascript">    var ctx = document.getElementById('chart9980').getContext('2d');    var options =     {    type: 'line',    data: {    labels: ['5.1', '5.13'],    datasets: [{        label: 'cny',        backgroundColor: 'rgb(255, 99, 132)',        borderColor: 'rgb(255, 99, 132)',        data: [22237.9, 15616.8]        }]    },    options: {        responsive: true,        title: {        display: true,        text: '2023总选陈琳pk金额'        }    }};    new Chart(ctx, options);</script><div style="width: 90%;margin: 0 auto">    <canvas id="chart3704" style="height: 300px"></canvas></div><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script><script type="text/javascript">    var ctx = document.getElementById('chart3704').getContext('2d');    var options =     {    type: 'line',    data: {    labels: ['5.1', '5.13'],    datasets: [{        label: '人数',        backgroundColor: 'rgb(255, 165, 0)',        borderColor: 'rgb(255, 165, 0)',        data: [118, 114]        }]    },    options: {        responsive: true,        title: {        display: true,        text: '2023总选陈琳pk人头数'        }    }};    new Chart(ctx, options);</script><h2 id="我的pk金额记录"><a href="#我的pk金额记录" class="headerlink" title="我的pk金额记录"></a>我的pk金额记录</h2><table><thead><tr><th align="left">时间</th><th align="right">金额</th></tr></thead><tbody><tr><td align="left">5.1-5.2</td><td align="right">1666.8</td></tr><tr><td align="left">5.13-5.14</td><td align="right">420</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<h1 id="2023年陈琳pk记录"><a href="#2023年陈琳pk记录" class="headerlink" title="2023年陈琳pk记录"></a>2023年陈琳pk记录</h1><p>仅作为记录，希望今年不会事与愿违</p><h2 id="pk-总额"><a href="#pk-总额" class="headerlink" title="pk 总额"></a>pk 总额</h2><table><thead><tr><th align="left">时间</th><th align="center">金额</th><th align="right">人数</th></tr></thead><tbody><tr><td align="left">5.1-5.2</td><td align="center">22237.90</td><td align="right">119</td></tr><tr><td align="left">5.13-5.14</td><td align="center">15616.80</td><td align="right">114</td></tr></tbody></table><div style="width: 90%;margin: 0 auto">    <canvas id="chart5871" style="height: 300px"></canvas></div><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script><script type="text/javascript">    var ctx = document.getElementById('chart5871').getContext('2d');    var options =     {    type: 'line',    data: {    labels: ['5.1', '5.13'],    datasets: [{        label: 'cny',        backgroundColor: 'rgb(255, 99, 132)',        borderColor: 'rgb(255, 99, 132)',        data: [22237.9, 15616.8]        }]    },    options: {        responsive: true,        title: {        display: true,        text: '2023总选陈琳pk金额'        }    }};    new Chart(ctx, options);</script><div style="width: 90%;margin: 0 auto">    <canvas id="chart1659" style="height: 300px"></canvas></div><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script><script type="text/javascript">    var ctx = document.getElementById('chart1659').getContext('2d');    var options =     {    type: 'line',    data: {    labels: ['5.1', '5.13'],    datasets: [{        label: '人数',        backgroundColor: 'rgb(255, 165, 0)',        borderColor: 'rgb(255, 165, 0)',        data: [118, 114]        }]    },    options: {        responsive: true,        title: {        display: true,        text: '2023总选陈琳pk人头数'        }    }};    new Chart(ctx, options);</script><h2 id="我的pk金额记录"><a href="#我的pk金额记录" class="headerlink" title="我的pk金额记录"></a>我的pk金额记录</h2><table><thead><tr><th align="left">时间</th><th align="right">金额</th></tr></thead><tbody><tr><td align="left">5.1-5.2</td><td align="right">1666.8</td></tr><tr><td align="left">5.13-5.14</td><td align="right">420</td></tr></tbody></table>]]></content>
     
     
     <categories>
