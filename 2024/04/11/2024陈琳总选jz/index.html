@@ -16,23 +16,21 @@
   <meta name="author" content="aki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="2023年青春盛典暨总选自投份额">
+    <meta name="description" content="console.log(window.location.origin) function getRandomInt(max) {     return Math.floor(Math.random() * Math.floor(max)); }  function getRandomColor() {     var letters &#x3D; &#39;0123456789ABCDEF&#39;;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2023总选自投">
-<meta property="og:url" content="https://akiaki1996.github.io/2023/09/05/2023%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/index.html">
+<meta property="og:title" content="2024陈琳总选jz">
+<meta property="og:url" content="https://akiaki1996.github.io/2024/04/11/2024%E9%99%88%E7%90%B3%E6%80%BB%E9%80%89jz/index.html">
 <meta property="og:site_name" content="一些笔记">
-<meta property="og:description" content="2023年青春盛典暨总选自投份额">
+<meta property="og:description" content="console.log(window.location.origin) function getRandomInt(max) {     return Math.floor(Math.random() * Math.floor(max)); }  function getRandomColor() {     var letters &#x3D; &#39;0123456789ABCDEF&#39;;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://akiaki1996.github.io/2023/09/05/2023%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/2023senbatsu.png">
-<meta property="article:published_time" content="2023-09-05T07:36:39.000Z">
-<meta property="article:modified_time" content="2023-09-05T07:37:57.102Z">
+<meta property="article:published_time" content="2024-04-11T07:00:24.000Z">
+<meta property="article:modified_time" content="2024-04-15T02:47:03.398Z">
 <meta property="article:author" content="aki">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://akiaki1996.github.io/2023/09/05/2023%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/2023senbatsu.png">
   
   
   
-  <title>2023总选自投 - 一些笔记</title>
+  <title>2024陈琳总选jz - 一些笔记</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -174,7 +172,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2023总选自投"></span>
+            <span id="subtitle" data-typed-text="2024陈琳总选jz"></span>
           
         </div>
 
@@ -185,8 +183,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-05 15:36" pubdate>
-          2023年9月5日 下午
+        <time datetime="2024-04-11 15:00" pubdate>
+          2024年4月11日 下午
         </time>
       </span>
     
@@ -197,7 +195,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          16 字
+          1.3k 字
         
       </span>
     
@@ -208,7 +206,7 @@
         
         
         
-          1 分钟
+          11 分钟
         
       </span>
     
@@ -246,13 +244,103 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">2023总选自投</h1>
+            <h1 style="display: none">2024陈琳总选jz</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="2023年青春盛典暨总选自投份额"><a href="#2023年青春盛典暨总选自投份额" class="headerlink" title="2023年青春盛典暨总选自投份额"></a>2023年青春盛典暨总选自投份额</h1><p><img src="/2023/09/05/2023%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/2023senbatsu.png" srcset="/img/loading.gif" lazyload></p>
+                <div id="myChart" style="width: 900px;height:800px; margin-right: auto;"></div>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
+<script>
+
+console.log(window.location.origin)
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+fetch('http://101.43.229.240/home/lighthouse/Documents/2024414pk.csv')
+    .then(response => response.text())
+    .then(csvString => {
+        const data = Papa.parse(csvString, { header: true, dynamicTyping: true }).data;
+        Highcharts.chart('myChart', {
+    chart: {
+        type: 'bubble',
+        plotBorderWidth: 1,
+        zoomType: 'xy'
+    },
+    title: {
+        text: '2024总选pk个人jz'
+    },
+    xAxis: {
+        visible: false
+    },
+    yAxis: {
+        visible: false
+    },
+    tooltip: {
+        useHTML: true,
+        headerFormat: '',
+        pointFormat: '<b>{point.name}: {point.z}</b>',
+        footerFormat: '',
+        followPointer: true
+    },
+    series: [{
+        symbolSize: function (data) {
+                return Math.sqrt(data[2]) * 200;
+            },
+        type: 'scatter',
+        itemStyle: {
+            color: function() {
+                return '#' + Math.floor(Math.random()*16777215).toString(16);
+            }
+        },
+        label: {
+            show: true,
+            formatter: function (params) {
+                return params.data.name;
+            },
+            position: 'inside'
+        },
+        emphasis: {
+            label: {
+                show: true,
+                formatter: function (params) {
+                    if (Math.sqrt(params.data.value[2]) * 10 < threshold) {
+                        return '';
+                    } else {
+                        return params.data.name + ': ' + params.data.value[2];
+                    }
+                }
+            }
+        },
+        name: '金额',
+        data: data.map(row=> ({
+                    x: getRandomInt(100),
+                    y: getRandomInt(100),
+                    z: row['金额'] * 100,
+                    name: row['ID'],
+                    color: getRandomColor(),
+                    
+        }))
+        
+
+    }]
+});
+    });
+
+</script>
                 
               </div>
             
@@ -269,8 +357,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2023总选自投</div>
-      <div>https://akiaki1996.github.io/2023/09/05/2023总选自投/</div>
+      <div>2024陈琳总选jz</div>
+      <div>https://akiaki1996.github.io/2024/04/11/2024陈琳总选jz/</div>
     </div>
     <div class="license-meta">
       
@@ -282,7 +370,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月5日</div>
+          <div>2024年4月11日</div>
         </div>
       
       
@@ -314,18 +402,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/11/2024%E9%99%88%E7%90%B3%E6%80%BB%E9%80%89jz/" title="2024陈琳总选jz">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2024陈琳总选jz</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/22/2022%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/" title="2022总选自投">
-                        <span class="hidden-mobile">2022总选自投</span>
+                      <a href="/2023/09/05/2023%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/" title="2023总选自投">
+                        <span class="hidden-mobile">2023总选自投</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
