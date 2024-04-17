@@ -16,15 +16,15 @@
   <meta name="author" content="aki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="用来记录2024年陈琳总选jz情况，和我个人的jz记录 个人jz统计   pk总额   我的jz金额               function getRandomInt(max) {     return Math.floor(Math.random() * Math.floor(max)); }  function getRandomColor() {     var letters &#x3D; &#39;">
+    <meta name="description" content="用来记录2024年陈琳总选jz情况，和我个人的jz记录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024陈琳总选jz">
 <meta property="og:url" content="https://akiaki1996.github.io/2024/04/11/2024%E9%99%88%E7%90%B3%E6%80%BB%E9%80%89jz/index.html">
 <meta property="og:site_name" content="一些笔记">
-<meta property="og:description" content="用来记录2024年陈琳总选jz情况，和我个人的jz记录 个人jz统计   pk总额   我的jz金额               function getRandomInt(max) {     return Math.floor(Math.random() * Math.floor(max)); }  function getRandomColor() {     var letters &#x3D; &#39;">
+<meta property="og:description" content="用来记录2024年陈琳总选jz情况，和我个人的jz记录">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-11T07:00:24.000Z">
-<meta property="article:modified_time" content="2024-04-17T02:03:06.367Z">
+<meta property="article:modified_time" content="2024-04-17T03:04:42.345Z">
 <meta property="article:author" content="aki">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -195,7 +195,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          2.8k 字
         
       </span>
     
@@ -206,7 +206,7 @@
         
         
         
-          20 分钟
+          24 分钟
         
       </span>
     
@@ -250,12 +250,19 @@
               <div class="markdown-body">
                 
                 <p>用来记录2024年陈琳总选jz情况，和我个人的jz记录</p>
+<span id="more"></span>
+
+<hr>
 <h2 id="个人jz统计"><a href="#个人jz统计" class="headerlink" title="个人jz统计"></a>个人jz统计</h2><div id="individualChart" style="width: 800px;height:1000px; margin-right: auto;"></div>
 
-
+<hr>
 <h2 id="pk总额"><a href="#pk总额" class="headerlink" title="pk总额"></a>pk总额</h2><div id="totalChart" style="width: 800px;height:1000px; margin-right: auto;"></div>
+---
+
+<h2 id="flag总额比"><a href="#flag总额比" class="headerlink" title="flag总额比"></a>flag总额比</h2><div id="portionChart" style="width: 800px;height:1000px; margin-right: auto;"></div>
 
 
+<hr>
 <h2 id="我的jz金额"><a href="#我的jz金额" class="headerlink" title="我的jz金额"></a>我的jz金额</h2><div id="myChart" style="width: 800px;height:1000px; margin-right: auto;"></div>
 
 
@@ -458,6 +465,72 @@ Highcharts.chart('totalChart', {
 
 </script>
 
+
+<script>
+Highcharts.chart('portionChart', {
+
+  title: {
+    text: 'jz flag总额比',
+    align: 'center'
+  },
+
+  
+
+  yAxis: {
+    min: 0,
+    max: 1,
+    title: {
+      text: '百分比'
+    },
+    stackLabels: {
+            enabled: true
+        },
+  },
+
+  xAxis: {
+    categories:[
+        '4.14'
+    ]
+
+  },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2010
+    }
+  },
+
+  series: [{
+    name: 'flag总额比',
+    data: [6500/32382.7]
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+</script>
 
 <script>
 Highcharts.chart('myChart', {
