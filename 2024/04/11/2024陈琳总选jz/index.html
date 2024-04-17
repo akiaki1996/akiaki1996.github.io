@@ -16,15 +16,15 @@
   <meta name="author" content="aki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="console.log(window.location.origin) function getRandomInt(max) {     return Math.floor(Math.random() * Math.floor(max)); }  function getRandomColor() {     var letters &#x3D; &#39;0123456789ABCDEF&#39;;">
+    <meta name="description" content="用来记录2024年陈琳总选jz情况，和我个人的jz记录 个人jz统计   pk总额   我的jz金额               function getRandomInt(max) {     return Math.floor(Math.random() * Math.floor(max)); }  function getRandomColor() {     var letters &#x3D; &#39;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024陈琳总选jz">
 <meta property="og:url" content="https://akiaki1996.github.io/2024/04/11/2024%E9%99%88%E7%90%B3%E6%80%BB%E9%80%89jz/index.html">
 <meta property="og:site_name" content="一些笔记">
-<meta property="og:description" content="console.log(window.location.origin) function getRandomInt(max) {     return Math.floor(Math.random() * Math.floor(max)); }  function getRandomColor() {     var letters &#x3D; &#39;0123456789ABCDEF&#39;;">
+<meta property="og:description" content="用来记录2024年陈琳总选jz情况，和我个人的jz记录 个人jz统计   pk总额   我的jz金额               function getRandomInt(max) {     return Math.floor(Math.random() * Math.floor(max)); }  function getRandomColor() {     var letters &#x3D; &#39;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-11T07:00:24.000Z">
-<meta property="article:modified_time" content="2024-04-15T02:47:03.398Z">
+<meta property="article:modified_time" content="2024-04-17T02:03:06.367Z">
 <meta property="article:author" content="aki">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -195,7 +195,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          2.3k 字
         
       </span>
     
@@ -206,7 +206,7 @@
         
         
         
-          11 分钟
+          20 分钟
         
       </span>
     
@@ -249,14 +249,28 @@
             
               <div class="markdown-body">
                 
-                <div id="myChart" style="width: 900px;height:800px; margin-right: auto;"></div>
+                <p>用来记录2024年陈琳总选jz情况，和我个人的jz记录</p>
+<h2 id="个人jz统计"><a href="#个人jz统计" class="headerlink" title="个人jz统计"></a>个人jz统计</h2><div id="individualChart" style="width: 800px;height:1000px; margin-right: auto;"></div>
+
+
+<h2 id="pk总额"><a href="#pk总额" class="headerlink" title="pk总额"></a>pk总额</h2><div id="totalChart" style="width: 800px;height:1000px; margin-right: auto;"></div>
+
+
+<h2 id="我的jz金额"><a href="#我的jz金额" class="headerlink" title="我的jz金额"></a>我的jz金额</h2><div id="myChart" style="width: 800px;height:1000px; margin-right: auto;"></div>
+
+
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+
+
 
 <script>
 
-console.log(window.location.origin)
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
@@ -269,77 +283,220 @@ function getRandomColor() {
     }
     return color;
 }
-
-fetch('http://101.43.229.240/home/lighthouse/Documents/2024414pk.csv')
-    .then(response => response.text())
-    .then(csvString => {
-        const data = Papa.parse(csvString, { header: true, dynamicTyping: true }).data;
-        Highcharts.chart('myChart', {
+d3.csv("20240414pk.csv").then(pkdata => {
+    
+   // console.log(pkdata)
+    // Convert numeric values to numbers
+    
+Highcharts.chart('individualChart', {
     chart: {
-        type: 'bubble',
-        plotBorderWidth: 1,
-        zoomType: 'xy'
+        type: 'packedbubble',
+        height: '100%'
     },
     title: {
-        text: '2024总选pk个人jz'
+        text: '2024总选pk个人jz情况',
+        align: 'center'
     },
-    xAxis: {
-        visible: false
-    },
-    yAxis: {
-        visible: false
-    },
+    
     tooltip: {
         useHTML: true,
         headerFormat: '',
-        pointFormat: '<b>{point.name}: {point.z}</b>',
+        pointFormat: '<b>{point.name}:</b> {point.value} cny',
         footerFormat: '',
         followPointer: true
     },
-    series: [{
-        symbolSize: function (data) {
-                return Math.sqrt(data[2]) * 200;
-            },
-        type: 'scatter',
-        itemStyle: {
-            color: function() {
-                return '#' + Math.floor(Math.random()*16777215).toString(16);
-            }
+     plotOptions: {
+        bubble: {
+            maxPointWidth:120
         },
-        label: {
-            show: true,
-            formatter: function (params) {
-                return params.data.name;
+        packedbubble: {
+            minSize: '10%',
+            maxSize: '200%',
+            zMin: 0,
+            zMax: 1000,
+            layoutAlgorithm: {
+                splitSeries: false,
+                gravitationalConstant: 0.02
             },
-            position: 'inside'
-        },
-        emphasis: {
-            label: {
-                show: true,
-                formatter: function (params) {
-                    if (Math.sqrt(params.data.value[2]) * 10 < threshold) {
-                        return '';
+            dataLabels: {
+                enabled: true,
+                formatter: function() {
+                     let fontSize;
+                    if (this.point.z < 100) {
+                        return ' ';}
+                    if(this.point.y.length > 8) {return ' ';}
+                     else if (this.point.z < 500) {
+                        fontSize = '6px';
                     } else {
-                        return params.data.name + ': ' + params.data.value[2];
+                        fontSize = '10px';
                     }
+                    return `<span style="font-size: ${fontSize};">${this.point.name}</span>`;
+                },
+
+                
+                filter: {
+                    property: 'y',
+                    operator: '>',
+                    value: 100
+                },
+                style: {
+                    color: 'black',
+                    textOutline: 'none',
+                    fontWeight: 'bold'
                 }
             }
-        },
+        }
+    },
+    series: [{
+        
         name: '金额',
-        data: data.map(row=> ({
-                    x: getRandomInt(100),
-                    y: getRandomInt(100),
-                    z: row['金额'] * 100,
-                    name: row['ID'],
-                    color: getRandomColor(),
-                    
+        
+        data: pkdata.map(row=> ({
+            name: row.name,
+            value: +row.value,
+            color: getRandomColor()
         }))
+
+        
+        
         
 
     }]
+    
 });
     });
 
+
+</script>
+
+
+
+
+<script>
+Highcharts.chart('totalChart', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: '2024年总选陈琳历次pk统计',
+        align: 'center'
+    },
+    xAxis: {
+        categories: ['4.14'],
+        crosshair: true
+    },
+    yAxis: [{
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+        min: 0,
+        title: {
+            text: '金额'
+        },
+        stackLabels: {
+            enabled: true
+        }
+    },
+    {
+        title: {
+            text: 'pk统计'
+        },
+        opposite: true
+    }],
+    legend: {
+        align: 'left',
+        x: 70,
+        verticalAlign: 'top',
+        y: 70,
+        floating: true,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || 'white',
+        borderColor: '#CCC',
+        borderWidth: 1,
+        shadow: false
+    },
+    tooltip: {
+        // headerFormat: '<b>{point.x}</b><br/>',
+        // pointFormat: '{point.name}: {point.y} <br/>',
+        shared: true
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    series: [{
+        name: '非flag金额',
+        data: [32382.7-6500],
+        tooltip: {
+            valueSuffix: '元'
+        }
+    }, {
+        name: 'flag金额',
+        data: [6500],
+        tooltip: {
+            valueSuffix: '元'
+        }
+    }, {
+        name: '总额',
+        type: 'line',
+        yAxis: 1,
+        data: [32382.7],
+        tooltip: {
+            valueSuffix: '元'
+        }
+    }]
+});
+
+
+
+</script>
+
+
+<script>
+Highcharts.chart('myChart', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: '我的jz金额',
+        align: 'center'
+    },
+    
+    xAxis: {
+        categories: ['4.14'],
+        crosshair: true,
+        accessibility: {
+            description: '日期'
+        }
+    },
+    yAxis: {
+        min: 0,
+        
+    },
+    tooltip: {
+        valueSuffix: '元'
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [
+        {
+            name: '元',
+            data: [20]
+        },
+        
+    ]
+});
 </script>
                 
               </div>
