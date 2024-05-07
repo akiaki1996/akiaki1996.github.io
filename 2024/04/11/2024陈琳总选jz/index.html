@@ -24,7 +24,7 @@
 <meta property="og:description" content="用来记录2024年陈琳总选jz情况，和我个人的jz记录">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-11T07:00:24.000Z">
-<meta property="article:modified_time" content="2024-05-06T06:38:06.162Z">
+<meta property="article:modified_time" content="2024-05-07T07:44:33.205Z">
 <meta property="article:author" content="aki">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -195,7 +195,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          4.5k 字
         
       </span>
     
@@ -206,7 +206,7 @@
         
         
         
-          25 分钟
+          38 分钟
         
       </span>
     
@@ -263,7 +263,17 @@
 
 
 <hr>
+<h2 id="jz人数"><a href="#jz人数" class="headerlink" title="jz人数"></a>jz人数</h2><div id="peopleChart" style="width: 100%;height:1000px; margin-right: auto;"></div>
+
+<hr>
+<h2 id="同期jz数据比较"><a href="#同期jz数据比较" class="headerlink" title="同期jz数据比较"></a>同期jz数据比较</h2><h3 id="2023，2024年jz-pk金额比较"><a href="#2023，2024年jz-pk金额比较" class="headerlink" title="2023，2024年jz pk金额比较"></a>2023，2024年jz pk金额比较</h3><div id="moneyComparisonChart" style="width: 100%;height:1000px; margin-right: auto;"></div>
+
+<h3 id="2023，2024年jz-pk人数比较"><a href="#2023，2024年jz-pk人数比较" class="headerlink" title="2023，2024年jz pk人数比较"></a>2023，2024年jz pk人数比较</h3><div id="peopleComparisonChart" style="width: 100%;height:1000px; margin-right: auto;"></div>
+
+<hr>
 <h2 id="我的jz金额"><a href="#我的jz金额" class="headerlink" title="我的jz金额"></a>我的jz金额</h2><div id="myChart" style="width: 100%;height:1000px; margin-right: auto;"></div>
+
+
 
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -477,8 +487,8 @@ Highcharts.chart('portionChart', {
   
 
   yAxis: {
-    min: 0,
-    max: 1,
+    min: null,
+    max: null,
     title: {
       text: '百分比'
     },
@@ -505,7 +515,7 @@ Highcharts.chart('portionChart', {
       label: {
         connectorAllowed: false
       },
-      pointStart: 2010
+      
     }
   },
 
@@ -531,6 +541,217 @@ Highcharts.chart('portionChart', {
 
 });
 </script>
+
+
+
+<script>
+Highcharts.chart('peopleChart', {
+
+  title: {
+    text: 'jz 人数统计',
+    align: 'center'
+  },
+
+  
+
+  yAxis: {
+    min: null,
+    max: null,
+    title: {
+      text: '人'
+    },
+    stackLabels: {
+            enabled: true
+        },
+  },
+
+  xAxis: {
+    categories:[
+        '4.14', '5.02-5.03'
+    ]
+
+  },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      
+    }
+  },
+
+  series: [{
+    name: '人',
+    data: [189, 232]
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+</script>
+
+
+<script>
+Highcharts.chart('moneyComparisonChart', {
+
+    title: {
+        text: '2023,2024年总选jz金额',
+        align: 'center'
+    },
+
+    subtitle: {
+        text: 'aki_zuiaichenlin.',
+        align: 'center'
+    },
+
+    yAxis: {
+        title: {
+            text: '金额'
+        }
+    },
+
+    xAxis: {
+        categories: [
+            '1',
+            '2',
+        ]
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            
+        }
+    },
+
+    series: [{
+        name: '2023年jz金额',
+        data: [22237.90, 15616.80]
+    }, {
+        name: '2024年jz金额',
+        data: [32382.7, 54961.7]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});
+
+
+
+</script>
+
+
+<script>
+Highcharts.chart('peopleComparisonChart', {
+
+    title: {
+        text: '2023,2024年总选jz人数',
+        align: 'center'
+    },
+
+    subtitle: {
+        text: 'aki_zuiaichenlin.',
+        align: 'center'
+    },
+
+    yAxis: {
+        title: {
+            text: '人'
+        }
+    },
+
+    xAxis: {
+        categories: [
+            '1',
+            '2',
+        ]
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            
+        }
+    },
+
+    series: [{
+        name: '2023年jz人数',
+        data: [119, 114]
+    }, {
+        name: '2024年jz人数',
+        data: [189, 232]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});
+
+
+
+</script>
+
 
 <script>
 Highcharts.chart('myChart', {
@@ -565,7 +786,7 @@ Highcharts.chart('myChart', {
     series: [
         {
             name: '元',
-            data: [20, 1040]
+            data: [20, 1060]
         },
         
     ]
