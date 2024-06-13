@@ -24,7 +24,7 @@
 <meta property="og:description" content="用来记录2024年陈琳总选jz情况，和我个人的jz记录">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-11T07:00:24.000Z">
-<meta property="article:modified_time" content="2024-06-12T09:03:48.410Z">
+<meta property="article:modified_time" content="2024-06-13T03:10:37.775Z">
 <meta property="article:author" content="aki">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -195,7 +195,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.4k 字
+          6.5k 字
         
       </span>
     
@@ -206,7 +206,7 @@
         
         
         
-          54 分钟
+          55 分钟
         
       </span>
     
@@ -257,9 +257,13 @@
 
 <div id="individualChart" style="width: 100%;height:1000px; margin-right: auto;"></div> -->
 
+
+<div id="pkprogressbar" style="max-width: 50%; width: auto;height:400px; margin-right: auto;"></div>
+
+<hr>
 <h2 id="pk总额"><a href="#pk总额" class="headerlink" title="pk总额"></a>pk总额</h2><div style="display: flex">
-<div id="pieChart2024" style="width: 50%;height:400px; margin-right: auto;"></div>
-<div id="pieChart2023" style="width: 50%;height:400px; margin-right: auto;"></div>
+<div id="pieChart2024" style="max-width: 50%; width: auto;height:400px; margin-right: auto;"></div>
+<div id="pieChart2023" style="max-width: 50%; width: auto;height:400px; margin-right: auto;"></div>
 
 </div>
 ---
@@ -290,6 +294,14 @@
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script sr="https://github.com/inorganik/countUp.js/blob/master/dist/requestAnimationFrame.polyfill.js"></script>
+
+<script>
+var pk2024 = 181565.43
+var x = "2024pk金额"
+document.getElementById("pkprogressbar").innerHTML = x + "<br>" + pk2024;
+</script>
+
 
 
 <script>
@@ -336,7 +348,7 @@ Highcharts.chart('pieChart2024', {
       data: [
         {
           name: 'flag金额',
-          x: 17843,
+          x: 57154.5,
           y: 31.47,
           color: '#FF0000'
         },
@@ -344,7 +356,7 @@ Highcharts.chart('pieChart2024', {
           name: '非flag金额',
           sliced: true,
           selected: true,
-          x: 61211.3,
+          x: 124410.93,
           y: 68.53,
           color: '#FF8C00'
         },
@@ -399,7 +411,7 @@ Highcharts.chart('pieChart2023', {
       data: [
         {
           name: 'flag金额',
-          x:25930,
+          x:41153,
           y: 27.5,
           color: '#0000FF'
         },
@@ -407,7 +419,7 @@ Highcharts.chart('pieChart2023', {
           name: '非flag金额',
           sliced: true,
           selected: true,
-          x:41840.8, 
+          x:108459.5, 
           y: 72.5,
           color:'#6495ED'
         },
