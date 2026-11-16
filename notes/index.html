@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>王秋扬 (Aki) · 开发 Notes</title>
+  <meta name="description" content="王秋扬 的开发 Notes 与 Agent 工程手记">
+  <link rel="icon" type="image/svg+xml" href="/assets/aki-monogram.svg">
+  <script>
+    (function(){
+      try {
+        var saved = localStorage.getItem('aki-theme');
+        var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a href="/" class="brand">
+        <img src="/assets/aki-monogram.svg" alt="Aki Swiss monogram">
+        <span class="brand-name">akiaki1996.github.io</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+          <a href="/" class="nav-link">首页</a>
+          <a href="/resume/" class="nav-link">个人简历</a>
+          <a href="/notes/" class="nav-link is-active">开发 Notes</a>
+          <a href="/life/" class="nav-link">生活与眼镜档案</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="切换明暗主题">DARK</button>
+      </nav>
+    </header>
+
+    <main>
+      
+    <section class="notes-toolbar">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="kicker">02 / ENGINEERING NOTES</div>
+        <h1 class="page-title">开发 Notes 与技术手记</h1>
+        <p style="margin: 0; font-size: 15px; color: var(--ink-secondary);">记录 Agent 工程化实践、LangGraph 运行时机制与开发排坑备忘。</p>
+      </div>
+      <div class="filter-group" role="tablist" aria-label="笔记分类筛选">
+        <button type="button" class="filter-btn is-active" data-cat-filter="全部">全部</button>
+        <button type="button" class="filter-btn" data-cat-filter="Agent 架构">Agent 架构</button>
+        <button type="button" class="filter-btn" data-cat-filter="工程排坑">工程排坑</button>
+      </div>
+    </section>
+
+    <section class="notes-layout" style="margin-top: 32px;">
+      <aside class="notes-index" aria-label="笔记索引">
+        <button type="button" class="note-index-btn is-selected" data-note-target="agent-dev" data-note-cat="Agent 架构">
+        <div style="display: flex; justify-content: space-between; gap: 12px; font-family: var(--font-mono); font-size: 11px;">
+          <span style="color: var(--accent);">N-01 · Agent 架构</span>
+          <span style="color: var(--ink-muted);">2026-11-16</span>
+        </div>
+        <strong style="font-size: 15px; line-height: 1.4;">Agent 开发工程手记：LangGraph、Harness 与四层心智模型</strong>
+        <span style="font-size: 13px; color: var(--ink-secondary);">整理自一线 Agent 开发实战：工程化收敛哲学、三大痛点、LangGraph 机制、GIL 进程隔离、上下文治理与四层运行时模型。</span>
+      </button>
+        <button type="button" class="note-index-btn" data-note-target="static-asset-paths" data-note-cat="工程排坑">
+        <div style="display: flex; justify-content: space-between; gap: 12px; font-family: var(--font-mono); font-size: 11px;">
+          <span style="color: var(--accent);">N-02 · 工程排坑</span>
+          <span style="color: var(--ink-muted);">2023-05-12</span>
+        </div>
+        <strong style="font-size: 15px; line-height: 1.4;">静态资源与图片相对路径排查记录</strong>
+        <span style="font-size: 13px; color: var(--ink-secondary);">迁移自原站点备忘：确保文章与配图资源路径在静态站点重构与部署后长期稳定可访问。</span>
+      </button>
+      </aside>
+      <div class="note-reader">
+        <article class="note-article" data-note-article="agent-dev">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: var(--font-mono); font-size: 12px; margin-bottom: 12px;">
+          <span style="color: var(--accent);">N-01 / Agent 架构</span>
+          <span style="color: var(--ink-muted);">2026-11-16</span>
+        </div>
+        <h2 style="margin: 0 0 14px; font-size: 26px; line-height: 1.3;">Agent 开发工程手记：LangGraph、Harness 与四层心智模型</h2>
+        <div class="tag-row" style="margin-bottom: 24px;">
+          <span class="aki-tag aki-tag-accent">LangGraph</span><span class="aki-tag">Harness</span><span class="aki-tag">Multi-Agent</span><span class="aki-tag">Runtime</span>
+        </div>
+        <div class="md-body"><blockquote><p>整理自日常开发实战（主要基于 LangGraph、DeerFlow 与多智能体运行时架构）。</p></blockquote>
+<h2>1. 核心哲学与摘要</h2>
+<p>Agent 开发本身就是将 <code>LLM + 代码 = Agent</code> 这个过程不断收敛到目标业务场景的工程实践。开发过程中最需要的，反而是<strong>大量真实环境下的端到端 Dogfooding 测试</strong>——通过持续测试暴露搭建阶段未曾预料的问题，再以工程化手段将 LLM 的概率输出收敛到可控范围内。</p>
+<p><strong>更好的切入思路</strong>：先想清楚如何将一个业务目标工程化，再识别其中哪些环节适合由 LLM 接入，而不是反过来用大模型硬包一切。</p>
+<blockquote><p><strong>核心架构哲学</strong>：让 Agent 只做「语义消歧（Semantic Resolution）」，让 Harness 做「确定性编译（Deterministic Lowering）」，让下游执行层做「零猜测的纯函数消费（Zero-Guessing Pure Execution）」。只让大模型做它不可替代的事（理解模糊意图），绝不让大模型做传统代码能完美搞定的事（数据搬运、逻辑拼装与安全执行）。</p></blockquote>
+<h2>2. 当前 Agent 开发的三个核心痛点</h2>
+<p>虽然我的主要实践基于 LangGraph 与上层的 DeerFlow，但大部分 Agent 系统面临的痛点高度相似：</p>
+<ol><li><strong>框架耦合重、手搓成本高</strong>：缺少合理的抽象框架，每次切换模型、更换 Tool Use 范式或迁移 Domain 都需要大量重写（其中垂直 Domain 的重写尚可接受，但底层重复劳动过多）。</li><li><strong>缺乏可追溯的迭代地图</strong>：架构、Prompt、Tool、Skill、策略与 Memory 之间缺少可视化、按图索骥的关联方式。每次迭代更新或线上排障时，难以快速定位并联动修改（例如切换底层 LLM API 或业务域时）。</li><li><strong>Agentic RL 的真实诉求</strong>：在落地深水区，最终往往需要一个经过微调的模型来驱动这套 Agent；而 <strong>Agentic RL 的核心目的是教会模型「如何使用这个 Agent」，而不是一股脑地把领域知识塞给模型</strong>。</li></ol>
+<h2>3. Harness 与 LangGraph 实战机制</h2>
+<h3>3.1 Harness 生命周期</h3>
+<p>Harness 负责围绕模型和工具执行建立可观测、可拦截的反馈回路，典型生命周期钩子包括：</p>
+<p><code>task_start</code> → <code>step_start</code> → <code>before_model</code> → <code>after_model</code> → <code>before_tool</code> → <code>after_tool</code> → <code>step_end</code> → <code>task_end</code></p>
+<h3>3.2 LangGraph 核心三件套</h3>
+<ol><li><strong>State（状态）</strong>：通常是一个自定义的 <code>TypedDict</code>，在节点与 Middleware 之间通过 Reducer 进行增量更新（<code>update</code>），而不是每次构造全新 State 传递。</li></ol>
+<pre><code class="language-python">class ThreadState(AgentState):
+    sandbox: NotRequired[SandboxState | None]
+    thread_data: NotRequired[ThreadDataState | None]
+    title: NotRequired[str | None]
+    artifacts: Annotated[list[str], merge_artifacts]          # 带自定义 reducer
+    todos: NotRequired[list | None]
+    viewed_images: Annotated[dict[str, ViewedImageData], merge_viewed_images]</code></pre>
+<ol><li><strong>Node（节点）</strong>：读取当前 <code>State</code>，执行模型调用或业务逻辑，并返回需要更新的字段字典。</li><li><strong>Edge（边）</strong>：分为固定边（Node A 完成后直接流向 Node B）和条件边（根据 <code>State</code> 状态路由到不同分支）。</li></ol>
+<pre><code class="language-text">        ┌──────────────┐
+        │   model      │  ← 调用 LLM，决定是否使用工具
+        └──────┬───────┘
+     有工具调用 │         无工具调用
+        ↓      │            ↓
+   ┌──────────┐│           END
+   │ tool_node││
+   └─────┬────┘│
+         │ 结果写回 messages
+         └─────→ 回到 model</code></pre>
+<h3>3.3 Middleware、Reducer、Checkpointer 与 Command</h3>
+<ul><li><strong>Middleware</strong>：本质是一组生命周期 Hook，在不改变 Graph 拓扑的前提下，在固定时机（<code>before_agent</code> / <code>after_agent</code> / <code>before_model</code> / <code>after_model</code>）执行横切逻辑。Node 是洋葱核，Middleware 是包裹它的外层；<strong>负责收口修改完整 State 的 Middleware 必须位于出口最外层</strong>。</li><li><strong>Reducer</strong>：当多个节点同时写入同一个字段（如 <code>artifacts</code> 或 <code>messages</code>）时，定义合并策略而非默认后写覆盖。</li><li><strong>Checkpointer</strong>：状态持久化层，在每一步执行后保存当前 <code>State</code> 快照、执行进度与 <code>pending writes</code>，用于断点续跑与历史回放。</li><li><strong>Command（Human-in-the-Loop）</strong>：需要人工介入（如调用 <code>ask_clarification</code> 工具）时，通过 LangGraph 的 <code>Command</code> 带着当前 <code>State</code> 中断并跳转（如 <code>goto=END</code>），等待确认后恢复。</li></ul>
+<h2>4. 工程经验：进程隔离、上下文治理与数据搬运</h2>
+<h3>4.1 重进程内的 CPU 密集型任务并发（Python GIL 与 Fork/Spawn）</h3>
+<p>Agent 运行时是一个较重的服务进程。受 Python GIL 限制（线程池仅适合 I/O 密集型），CPU 密集型任务需独立进程池隔离执行：</p>
+<ul><li><code>fork</code> 若在多线程父进程中触发，子进程仅继承单线程却可能继承锁状态，极易引发 <strong>Deadlock</strong>，且对依赖 C 扩展全局状态（如 <code>matplotlib</code>）的任务不安全。</li><li><strong>标准解法</strong>：<strong><code>spawn</code> 轻子进程并在子进程内开进程池，主进程使用 <code>asyncio</code> 非阻塞等待</strong>。</li></ul>
+<h3>4.2 上下文生命周期与信噪比衰减</h3>
+<p>粗暴截断早期消息会破坏 JSON 与 <code>tool_use</code> / <code>tool_result</code> 配对；而步数增加会堆积大量原始工具返回，导致有效信息占比下降（信噪比降低）、稀释 LLM 注意力。因此需要一套完整的上下文压缩、摘要与生命周期管理。</p>
+<h3>4.3 消除「数据搬运」职责</h3>
+<p>步骤 A 的输出传给步骤 B 时，若依赖模型提取并重拼参数，易出现字符串截断、字段遗漏或 ID 混淆。核心原则是：<strong>让 LLM 做它擅长的事（理解意图、规划、推理），让系统做它擅长的事（通过 <code>parameterBindings</code> 声明式绑定完成数据搬运与精确传递）。</strong></p>
+<h2>5. 多 Agent 编排与边界判据</h2>
+<h3>5.1 Agent 边界的三条判据</h3>
+<p>拆分独立 Agent 边界，只有在换来以下至少一项收益时才成立，否则得不偿失：</p>
+<ol><li><strong>上下文隔离</strong>：避免不同子任务的中间过程互相污染注意力。</li><li><strong>权限分域</strong>：隔离不同的数据读写权限与工具集合。</li><li><strong>对抗独立</strong>：校验者不能共享提供者的上下文。</li></ol>
+<h3>5.2 多 Agent 编排误区与契约分层</h3>
+<p>切忌按人类组织角色让 Subagent 用自然语言互相对话，这会引入极高的不确定性成本；应优先采用结构化契约与确定性路由。Agent 负责理解意图并选择行动，Middleware 只基于 <code>action</code>、<code>state</code>、<code>receipt</code> 和最终输出 <code>claims</code> 执行确定性契约：</p>
+<ol><li><strong>Intent / Planning</strong>：由 Agent 根据自然语言与 Tool Schema 自主决策。</li><li><strong>Action</strong>：Agent 调用强类型的 Typed Tool。</li><li><strong>Tool Contract</strong>：由代码执行确定性的前置与后置校验。</li><li><strong>Receipt</strong>：Tool 成功后留下机器可读凭据。</li><li><strong>Publication Guard</strong>：最终输出前核验 <code>claims</code> 与 <code>receipts</code> 一致性。</li></ol>
+<h2>6. Agent 运行时四层心智模型</h2>
+<h3>第 1 层：Run Envelope（执行环境边界）</h3>
+<p>定义单次运行的身份、Thread、Project、Workspace、Sandbox 与权限边界。Runtime Context 不是 Agent 所需的全部背景知识，而是本次执行的环境信封。</p>
+<h3>第 2 层：Graph（底层控制流与数据流）</h3>
+<ul><li><strong>控制流</strong>：<code>Node</code> / <code>Edge</code> / <code>Conditional Edge</code></li><li><strong>数据流</strong>：<code>State</code>（共享状态字段集合）、<code>Channel</code>（更新通道）、<code>Reducer</code>（合并规则，如 <code>add_messages</code>）</li><li><strong>暂停与记忆</strong>：<code>Interrupt</code> + <code>Checkpointer</code>（Thread 局部持久化）与 <code>Store</code>（跨 Thread 长期存储抽象）</li></ul>
+<h3>第 3 层：Runtime Extension（执行生命周期层）</h3>
+<ul><li><strong>Hook（插入点）</strong>：<code>before_agent</code>、<code>after_agent</code>、<code>before_model</code>、<code>after_model</code>、<code>wrap_model_call</code>、<code>wrap_tool_call</code></li><li><strong>Middleware（机制组件）</strong>：组合多个 Hook 的可复用组件（如 <code>SandboxMiddleware</code>）</li><li><strong>Cross-cutting Policies（治理策略分类）</strong>：</li></ul>
+<div class="table-wrap"><table><thead><tr><th>Policy</th><th>核心目的</th></tr></thead><tbody><tr><td>Guardrail</td><td>阻止危险、越权或不合规行为</td></tr><tr><td>Retry</td><td>处理临时性网络或接口错误</td></tr><tr><td>Rate Limit</td><td>控制 Token、Cost 与调用频率</td></tr><tr><td>Tracing</td><td>记录完整执行路径与耗时性能</td></tr><tr><td>Loop Control</td><td>检测重复无效调用与无进展空转</td></tr><tr><td>Summarization</td><td>长程任务上下文压缩与摘要</td></tr><tr><td>Receipt / Audit</td><td>记录关键工具动作的执行凭据</td></tr><tr><td>Error Handling</td><td>统一失败表达与降级提示</td></tr><tr><td>Context Injection</td><td>注入 Workspace、User、Project 元数据</td></tr></tbody></table></div>
+<h3>第 4 层：Model Interface（模型可见与可控接口）</h3>
+<div class="table-wrap"><table><thead><tr><th>组件</th><th>类型</th><th>作用</th></tr></thead><tbody><tr><td>Model</td><td>Runtime</td><td>LLM 推理本体</td></tr><tr><td>Prompt</td><td>Context</td><td>规定角色、行为规则与工作流程</td></tr><tr><td>Skill</td><td>Context</td><td>按需注入的方法论、范式知识与交互规则</td></tr><tr><td>Tool</td><td>Callable</td><td>模型可调用的强类型函数入口</td></tr><tr><td>Toolset</td><td>Collection</td><td>一组关联 Tools 的集合</td></tr><tr><td>MCP Tool</td><td>Callable</td><td>通过 MCP 协议暴露给模型的外部能力</td></tr><tr><td>Structured Output</td><td>Schema</td><td>约束模型输出结构与字段类型</td></tr><tr><td>Subagent Dispatch</td><td>Callable</td><td>通过 <code>task()</code> 派遣子 Agent</td></tr></tbody></table></div>
+<blockquote><p><strong>关键区分</strong>：<strong>Tool 不是 Service</strong>。Tool 是面向模型的能力入口与参数契约，Service 才是背后真正承担状态变更与计算的后端实现。</p></blockquote></div>
+      </article>
+        <article class="note-article" data-note-article="static-asset-paths" hidden>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: var(--font-mono); font-size: 12px; margin-bottom: 12px;">
+          <span style="color: var(--accent);">N-02 / 工程排坑</span>
+          <span style="color: var(--ink-muted);">2023-05-12</span>
+        </div>
+        <h2 style="margin: 0 0 14px; font-size: 26px; line-height: 1.3;">静态资源与图片相对路径排查记录</h2>
+        <div class="tag-row" style="margin-bottom: 24px;">
+          <span class="aki-tag aki-tag-accent">Static Site</span><span class="aki-tag">Markdown</span><span class="aki-tag">Assets</span>
+        </div>
+        <div class="md-body"><h2>问题背景</h2>
+<p>此前使用旧静态博客框架（Hexo + <code>hexo-asset-image</code>）时，Markdown 文章内的相对图片路径在编译生成 HTML 后经常出现路径解析偏差，导致本地可见而线上图片裂开。</p>
+<h2>排查与规范做法</h2>
+<ol><li><strong>资源路径统一</strong>：将需要长期保留的图片资产（如 <code>2023glasses.jpg</code>）集中存放在静态资源目录 <code>src/assets/</code>，构建时统一拷贝至输出目录 <code>/assets/</code>。</li><li><strong>相对与绝对引用一致</strong>：站点页面统一基于规范化路径引用资源，避免依赖第三方插件的脆弱正则替换。</li><li><strong>构建即校验</strong>：在静态构建脚本中确保资源复制与目录结构与 HTML 引用完全匹配。</li></ol>
+<pre><code class="language-text">src/assets/2023glasses.jpg  ──(build)──▶  public/assets/2023glasses.jpg</code></pre></div>
+      </article>
+      </div>
+    </section>
+  
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 王秋扬 (Aki) · akiaki1996.github.io</span>
+      <div class="footer-links">
+        <a href="https://github.com/akiaki1996" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://livevents.app" target="_blank" rel="noopener noreferrer">livevents.app ↗</a>
+        <a href="mailto:wqiuyang1996@outlook.com">wqiuyang1996@outlook.com</a>
+      </div>
+    </footer>
+  </div>
+  <script src="/scripts/site.js" defer></script>
+</body>
+</html>

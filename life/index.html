@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>王秋扬 (Aki) · 生活与眼镜档案</title>
+  <meta name="description" content="王秋扬 的个人生活档案与 2023 验光度数记录">
+  <link rel="icon" type="image/svg+xml" href="/assets/aki-monogram.svg">
+  <script>
+    (function(){
+      try {
+        var saved = localStorage.getItem('aki-theme');
+        var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a href="/" class="brand">
+        <img src="/assets/aki-monogram.svg" alt="Aki Swiss monogram">
+        <span class="brand-name">akiaki1996.github.io</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+          <a href="/" class="nav-link">首页</a>
+          <a href="/resume/" class="nav-link">个人简历</a>
+          <a href="/notes/" class="nav-link">开发 Notes</a>
+          <a href="/life/" class="nav-link is-active">生活与眼镜档案</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="切换明暗主题">DARK</button>
+      </nav>
+    </header>
+
+    <main>
+      
+    <section style="display: flex; flex-direction: column; gap: 10px; padding-bottom: 24px; border-bottom: 1px solid var(--line);">
+      <div class="kicker">03 / LIFE &amp; PERSONAL ARCHIVE</div>
+      <h1 class="page-title">个人生活与长期备忘档案</h1>
+      <p style="margin: 0; font-size: 15px; color: var(--ink-secondary); max-width: 680px;">存放脱离工作代码之外的个人备忘、日常碎片与长期参考数据。首条完整保留原仓库的 2023 年验光度数记录。</p>
+    </section>
+
+    <section id="glasses" class="card card-top-accent" style="padding: 32px; gap: 24px; margin-top: 32px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="aki-tag aki-tag-accent">PERMANENT RECORD</span>
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">2023-05-12 · 类别：日常</span>
+          </div>
+          <h2 style="margin: 0; font-size: 24px;">2023 验光度数记录</h2>
+        </div>
+        <button type="button" class="theme-toggle" style="margin-left: 0;" data-toggle-photo>收起验光原单</button>
+      </div>
+
+      <p style="margin: 0; font-size: 14px; color: var(--ink-secondary);">2023 年初做的验光，记录以下，留作以后配镜使用。</p>
+
+      <div class="glasses-grid">
+        <div style="background: var(--surface-subtle); padding: 20px 24px; border: 1px solid var(--line);">
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-muted); padding-bottom: 8px; border-bottom: 1px solid var(--line);">OPTOMETRY SPECIFICATION</div>
+          <div class="aki-spec-row">
+    <span class="aki-spec-label">优势眼 (Dominant)</span>
+    <span class="aki-spec-value">左眼 (OS)</span>
+  </div>
+          <div class="aki-spec-row">
+    <span class="aki-spec-label">右眼 (R / OD)</span>
+    <span class="aki-spec-value">-7.25  -1.25 × 5</span>
+  </div>
+          <div class="aki-spec-row">
+    <span class="aki-spec-label">左眼 (L / OS)</span>
+    <span class="aki-spec-value">-6.75  -1.25 × 130</span>
+  </div>
+          <div class="aki-spec-row">
+    <span class="aki-spec-label">单眼瞳距 (PD)</span>
+    <span class="aki-spec-value">右 32.5 mm · 左 33.5 mm</span>
+  </div>
+          <div class="aki-spec-row">
+    <span class="aki-spec-label">总瞳距 (Total PD)</span>
+    <span class="aki-spec-value">66 mm</span>
+  </div>
+        </div>
+
+        <div data-photo-wrap style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="glasses-photo-box">
+            <img src="/assets/2023glasses.jpg" alt="2023 年手写验光度数原单：优左，R -7.25 -1.25x5，L -6.75 -1.25x130，PD 右32.5 左33.5 总66">
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted);">原件附件：2023glasses.jpg（手写验光单）</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="two-col-grid" style="margin-top: 32px;">
+      <article class="card card-top-strong">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="kicker">生活碎片</span>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">2026-11-16</span>
+        </div>
+        <h3 style="margin: 0; font-size: 18px;">关于这个生活档案栏</h3>
+        <div class="md-body"><p>这里用来存放代码与工作之外的日常切片，比如现场演出（平时也在做 <a href="https://livevents.app" target="_blank" rel="noopener noreferrer">livevents.app</a> 聚合乐队演出信息）、书影短评以及各种长期自用备忘。</p>
+<p>后续只需要在 <code>content/life/</code> 目录下新增 <code>.md</code> 文件并执行 <code>npm run build</code> 即可自动收录展示。</p></div>
+      </article>
+    </section>
+  
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 王秋扬 (Aki) · akiaki1996.github.io</span>
+      <div class="footer-links">
+        <a href="https://github.com/akiaki1996" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://livevents.app" target="_blank" rel="noopener noreferrer">livevents.app ↗</a>
+        <a href="mailto:wqiuyang1996@outlook.com">wqiuyang1996@outlook.com</a>
+      </div>
+    </footer>
+  </div>
+  <script src="/scripts/site.js" defer></script>
+</body>
+</html>

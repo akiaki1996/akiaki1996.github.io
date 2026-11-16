@@ -1,611 +1,167 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/aki-logo.jpg">
-  <link rel="icon" href="/img/aki-logo.jpg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="aki">
-  <meta name="keywords" content="">
-  
-    <meta property="og:type" content="website">
-<meta property="og:title" content="一些笔记">
-<meta property="og:url" content="https://akiaki1996.github.io/index.html">
-<meta property="og:site_name" content="一些笔记">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="aki">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>一些笔记</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"akiaki1996.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>王秋扬 (Aki) · 个人主页</title>
+  <meta name="description" content="王秋扬 (Aki) — AI 全栈工程师 / Agent 开发工程师，个人简历、Agent 开发 Notes 与生活档案。">
+  <link rel="icon" type="image/svg+xml" href="/assets/aki-monogram.svg">
+  <script>
+    (function(){
+      try {
+        var saved = localStorage.getItem('aki-theme');
+        var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
-
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/site.css">
+</head>
 <body>
-  
+  <div class="site-shell">
+    <header class="site-header">
+      <a href="/" class="brand">
+        <img src="/assets/aki-monogram.svg" alt="Aki Swiss monogram">
+        <span class="brand-name">akiaki1996.github.io</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+          <a href="/" class="nav-link is-active">首页</a>
+          <a href="/resume/" class="nav-link">个人简历</a>
+          <a href="/notes/" class="nav-link">开发 Notes</a>
+          <a href="/life/" class="nav-link">生活与眼镜档案</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="切换明暗主题">DARK</button>
+      </nav>
+    </header>
 
-  <header>
-    
-
-<div class="header-inner" style="height: 100vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>akizacl</strong>
+    <main>
+      
+    <section class="hero-grid">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="kicker">00 / PERSONAL INDEX · 北京 · AI FULL-STACK &amp; AGENT</div>
+        <h1 class="hero-title">王秋扬 / Aki</h1>
+        <p class="lead" style="max-width: 580px;">AI 全栈工程师 / Agent 开发工程师。专注在数据密集与强可追溯场景中把 LLM 能力落成可验证的生产级系统（EthoInsight、KOX、livevents.app），这里收纳我的个人简历、Agent 开发手记与生活档案。</p>
+      </div>
+      <div class="card" style="gap: 8px;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-muted);">PROFILE &amp; LINKS</div>
+        <div class="aki-spec-row">
+    <span class="aki-spec-label">当前职位</span>
+    <span class="aki-spec-value">AI Agent 开发工程师 · 诺达思</span>
+  </div>
+        <div class="aki-spec-row">
+    <span class="aki-spec-label">教育背景</span>
+    <span class="aki-spec-value">CU Boulder · 计算机科学硕士</span>
+  </div>
+        <a href="mailto:wqiuyang1996@outlook.com" class="aki-spec-row aki-spec-row-link">
+      <span class="aki-spec-label">常驻 / 邮箱</span>
+      <span class="aki-spec-value">北京 · wqiuyang1996@outlook.com</span>
     </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="aki_zuiaichenlin的笔记"></span>
-          
+        <a href="https://livevents.app" target="_blank" rel="noopener noreferrer" class="aki-spec-row aki-spec-row-link">
+      <span class="aki-spec-label">独立项目</span>
+      <span class="aki-spec-value is-accent">livevents.app ↗</span>
+    </a>
+        <a href="https://github.com/akiaki1996" target="_blank" rel="noopener noreferrer" class="aki-spec-row aki-spec-row-link">
+      <span class="aki-spec-label">GitHub</span>
+      <span class="aki-spec-value is-accent">github.com/akiaki1996 ↗</span>
+    </a>
+        <div class="btn-row">
+          <a href="/resume/" class="aki-btn aki-btn-primary">查看完整简历</a>
+          <a href="/notes/" class="aki-btn">阅读 Agent Notes</a>
+          <a href="https://livevents.app" target="_blank" rel="noopener noreferrer" class="aki-btn">访问 livevents.app</a>
         </div>
-
-        
       </div>
+    </section>
 
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
+    <section class="hub-grid" style="margin-top: 40px;">
+      <article class="card card-top-strong card-between">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <span class="kicker">01 / RESUME</span>
+            <span class="aki-tag">CV · 2026</span>
+          </div>
+          <h2 style="margin: 0; font-size: 20px; line-height: 1.35;">个人简历与技术履历</h2>
+          <p style="margin: 0; font-size: 14px; color: var(--ink-secondary);">涵盖诺达思 EthoInsight、蓝色光标 KOX 多智能体管线、哈斯科铁路实时数据平台、Inovonics 及独立项目 livevents.app。</p>
+          <div class="tag-row">
+            <span class="aki-tag">LangGraph</span>
+            <span class="aki-tag">Python</span>
+            <span class="aki-tag">TypeScript</span>
+            <span class="aki-tag">FastAPI</span>
+          </div>
         </div>
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2024/08/07/2024%E5%B9%B4%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/" target="_self">
-          2024年总选自投
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/08/07/2024%E5%B9%B4%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/" target="_self">
-        <div>
-          
+        <div class="card-foot">
+          <span style="color: var(--ink-muted);">5 段工程履历 · 2 个生产平台</span>
+          <a href="/resume/" style="color: var(--accent);">进入简历 →</a>
         </div>
+      </article>
+
+      <article class="card card-top-strong card-between">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <span class="kicker">02 / DEV NOTES</span>
+            <span class="aki-tag aki-tag-accent">AGENT DEV</span>
+          </div>
+          <h2 style="margin: 0; font-size: 20px; line-height: 1.35;">Agent 开发工程手记与备忘</h2>
+          <div class="note-preview-list">
+            <a href="/notes/#agent-dev" class="note-preview-item">
+        <span style="font-size: 14px; font-weight: 500; color: var(--ink);">Agent 开发工程手记：LangGraph、Harness 与四层心智模型</span>
+        <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">N-01 · Agent 架构 · 2026-11-16</span>
       </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-08-07 11:25" pubdate>
-              2024-08-07
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2024/04/11/2024%E9%99%88%E7%90%B3%E6%80%BB%E9%80%89jz/" target="_self">
-          2024陈琳总选jz
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/11/2024%E9%99%88%E7%90%B3%E6%80%BB%E9%80%89jz/" target="_self">
-        <div>
-          用来记录2024年陈琳总选jz情况，和我个人的jz记录
-        </div>
+          <a href="/notes/#static-asset-paths" class="note-preview-item">
+        <span style="font-size: 14px; font-weight: 500; color: var(--ink);">静态资源与图片相对路径排查记录</span>
+        <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">N-02 · 工程排坑 · 2023-05-12</span>
       </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-04-11 15:00" pubdate>
-              2024-04-11
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/09/05/2023%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/" target="_self">
-          2023总选自投
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/05/2023%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/" target="_self">
-        <div>
-          2023年青春盛典暨总选自投份额
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-05 15:36" pubdate>
-              2023-09-05
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/05/22/2022%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/" target="_self">
-          2022总选自投
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/22/2022%E6%80%BB%E9%80%89%E8%87%AA%E6%8A%95/" target="_self">
-        <div>
-          2022年SNH48青春盛典暨总选自投份额
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-22 11:26" pubdate>
-              2023-05-22
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/05/16/%E5%BD%95%E6%92%AD%E5%A7%AC%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/" target="_self">
-          录播姬服务器配置
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/16/%E5%BD%95%E6%92%AD%E5%A7%AC%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/" target="_self">
-        <div>
-          陈琳录播姬服务器配置说明
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-16 09:42" pubdate>
-              2023-05-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E9%99%88%E7%90%B3/" class="category-chain-item">陈琳</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/05/15/2023%E9%99%88%E7%90%B3pk%E6%B1%87%E6%80%BB/" target="_self">
-          2023陈琳pk汇总
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/15/2023%E9%99%88%E7%90%B3pk%E6%B1%87%E6%80%BB/" target="_self">
-        <div>
-          2023年陈琳pk记录
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-15 11:22" pubdate>
-              2023-05-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E9%99%88%E7%90%B3/" class="category-chain-item">陈琳</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/05/12/%E7%9C%BC%E9%95%9C%E5%BA%A6%E6%95%B0/" target="_self">
-          2023眼镜度数
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/12/%E7%9C%BC%E9%95%9C%E5%BA%A6%E6%95%B0/" target="_self">
-        <div>
-          2023验光度数2023年初做的验光，记录以下，留作以后配镜使用
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-12 11:27" pubdate>
-              2023-05-12
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%97%A5%E5%B8%B8/" class="category-chain-item">日常</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
-            </div>
           </div>
         </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        <div class="card-foot">
+          <span style="color: var(--ink-muted);">共 2 篇工程笔记</span>
+          <a href="/notes/" style="color: var(--accent);">全部 Notes →</a>
         </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
+      </article>
+
+      <article class="card card-top-accent card-between">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <span class="kicker">03 / LIFE ARCHIVE</span>
+            <span class="aki-tag aki-tag-accent">PINNED</span>
+          </div>
+          <h2 style="margin: 0; font-size: 20px; line-height: 1.35;">2023 眼镜度数与生活切片</h2>
+          <p style="margin: 0; font-size: 14px; color: var(--ink-secondary);">保留自 2023-05-12 的验光参数，方便日后配镜随时查阅，同时收纳日常演出与生活记录。</p>
+          <div style="background: var(--surface-subtle); padding: 12px 16px;">
+            <div class="aki-spec-row">
+    <span class="aki-spec-label">右眼 OD</span>
+    <span class="aki-spec-value">-7.25 / -1.25 × 5</span>
   </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
+            <div class="aki-spec-row">
+    <span class="aki-spec-label">左眼 OS (优势眼)</span>
+    <span class="aki-spec-value">-6.75 / -1.25 × 130</span>
+  </div>
+            <div class="aki-spec-row">
+    <span class="aki-spec-label">瞳距 PD</span>
+    <span class="aki-spec-value">66 mm (右32.5 / 左33.5)</span>
+  </div>
+          </div>
+        </div>
+        <div class="card-foot">
+          <span style="color: var(--ink-muted);">验光单原图已归档</span>
+          <a href="/life/#glasses" style="color: var(--accent);">查看原图与生活 →</a>
+        </div>
+      </article>
+    </section>
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-  
-</div>
+    </main>
 
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
+    <footer class="site-footer">
+      <span>© 2026 王秋扬 (Aki) · akiaki1996.github.io</span>
+      <div class="footer-links">
+        <a href="https://github.com/akiaki1996" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://livevents.app" target="_blank" rel="noopener noreferrer">livevents.app ↗</a>
+        <a href="mailto:wqiuyang1996@outlook.com">wqiuyang1996@outlook.com</a>
+      </div>
+    </footer>
+  </div>
+  <script src="/scripts/site.js" defer></script>
 </body>
 </html>

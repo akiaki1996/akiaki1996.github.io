@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>王秋扬 (Aki) · 个人简历</title>
+  <meta name="description" content="王秋扬 2026 个人简历 — AI 全栈工程师 / Agent 开发工程师">
+  <link rel="icon" type="image/svg+xml" href="/assets/aki-monogram.svg">
+  <script>
+    (function(){
+      try {
+        var saved = localStorage.getItem('aki-theme');
+        var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a href="/" class="brand">
+        <img src="/assets/aki-monogram.svg" alt="Aki Swiss monogram">
+        <span class="brand-name">akiaki1996.github.io</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+          <a href="/" class="nav-link">首页</a>
+          <a href="/resume/" class="nav-link is-active">个人简历</a>
+          <a href="/notes/" class="nav-link">开发 Notes</a>
+          <a href="/life/" class="nav-link">生活与眼镜档案</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="切换明暗主题">DARK</button>
+      </nav>
+    </header>
+
+    <main>
+      
+    <section class="hero-grid" style="align-items: start; padding-bottom: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="kicker">01 / CURRICULUM VITAE · 2026</div>
+        <h1 class="page-title">王秋扬（Aki）</h1>
+        <p style="margin: 0; font-size: 16px; font-weight: 600;">AI 全栈工程师 / Agent 开发工程师</p>
+        <ul class="cv-bullets" style="margin-top: 4px;"><li>AI Agent 与全栈研发经验，负责 2 个生产级平台从数据建模、API、前端到测试上线的完整交付。</li><li>擅长在数据密集型、强可追溯场景中把 LLM 能力落成可验证功能：用类型、校验、评测与 E2E 测试构成 Agent 反馈回路（harness）。</li></ul>
+        <div class="btn-row no-print">
+          <button type="button" class="aki-btn aki-btn-primary" data-print-resume>打印 / 导出 PDF</button>
+          <a href="mailto:wqiuyang1996@outlook.com" class="aki-btn">邮件联系</a>
+          <a href="https://github.com/akiaki1996" target="_blank" rel="noopener noreferrer" class="aki-btn">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="card" style="padding: 18px 24px; gap: 0;">
+        <a href="mailto:wqiuyang1996@outlook.com" class="aki-spec-row aki-spec-row-link">
+      <span class="aki-spec-label">邮箱</span>
+      <span class="aki-spec-value">wqiuyang1996@outlook.com</span>
+    </a>
+        <div class="aki-spec-row">
+    <span class="aki-spec-label">电话</span>
+    <span class="aki-spec-value">+86 15600786867</span>
+  </div>
+        <div class="aki-spec-row">
+    <span class="aki-spec-label">所在地</span>
+    <span class="aki-spec-value">北京</span>
+  </div>
+        <a href="https://github.com/akiaki1996" target="_blank" rel="noopener noreferrer" class="aki-spec-row aki-spec-row-link">
+      <span class="aki-spec-label">GitHub</span>
+      <span class="aki-spec-value is-accent">github.com/akiaki1996 ↗</span>
+    </a>
+        <a href="https://livevents.app" target="_blank" rel="noopener noreferrer" class="aki-spec-row aki-spec-row-link">
+      <span class="aki-spec-label">独立项目</span>
+      <span class="aki-spec-value is-accent">livevents.app ↗</span>
+    </a>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 16px; margin-top: 36px;">
+      <div class="section-head">
+        <h2>工作经历</h2>
+        <span class="section-head-en">WORK EXPERIENCE</span>
+      </div>
+      <div class="cv-list"><article class="cv-entry is-featured">
+        <div class="cv-meta">
+          <span class="cv-period">2026.02 — 至今</span>
+          <strong style="font-size: 17px;">诺达思信息技术（Noldus Information Technology）</strong>
+          <span style="font-size: 13px; color: var(--ink-muted);">AI Agent 开发工程师 · 北京</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 14px; font-weight: 500;">职责：独立负责 EthoInsight 行为学 AI Agent 平台，从 0 到 1 交付数据管线、统计分析与可追溯报告。</div>
+          <ul class="cv-bullets"><li><strong>EthoInsight — 行为学数据分析 Agent</strong>：基于 LangGraph 开发行为学端到端数据分析 Agent，设计「AI 推理 + 确定性计算」架构：AI 负责理解与解读，数字与统计结论由确定性引擎生成并留痕，确保输出结果可溯源。</li><li><strong>Agent 评测与迭代</strong>：与行为学同事共建 eval 与 golden case，把专家判读标准转化为可自动评分的 benchmark，生成高质量 SFT 轨迹，用于 Qwen 27B 的 SFT + RL 后训练。</li></ul>
+          <div class="tag-row"><span class="aki-tag">LangGraph</span><span class="aki-tag">Eval &amp; Harness</span><span class="aki-tag">Qwen 27B SFT+RL</span></div>
+        </div>
+      </article>
+<article class="cv-entry">
+        <div class="cv-meta">
+          <span class="cv-period">2025.07 — 2026.02</span>
+          <strong style="font-size: 17px;">蓝色光标（BlueFocus）</strong>
+          <span style="font-size: 13px; color: var(--ink-muted);">Agent 开发工程师 · 北京</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 14px; font-weight: 500;">职责：负责 AI Agent 视频生成应用 KOX 的多智能体管线与运行时服务。</div>
+          <ul class="cv-bullets"><li><strong>KOX — 多智能体视频生成</strong>：基于 Strands Agents 与 AWS Bedrock AgentCore 搭建多智能体视频管线，编排导演、拍摄、后期三类 Agent，打通从脚本到成片的生产流程。</li><li><strong>Agent 运行时工具链</strong>：基于 AWS 生态，搭建 Agent 运行时工具链，覆盖工具调用、异步任务、状态持久化与 RBAC，配合 FastAPI、Celery 与 PostgreSQL 支撑生产级交付。</li></ul>
+          <div class="tag-row"><span class="aki-tag">Strands Agents</span><span class="aki-tag">Bedrock AgentCore</span><span class="aki-tag">FastAPI · Celery · PostgreSQL</span></div>
+        </div>
+      </article>
+<article class="cv-entry">
+        <div class="cv-meta">
+          <span class="cv-period">2022.11 — 2025.06</span>
+          <strong style="font-size: 17px;">哈斯科铁路（Harsco Rail）</strong>
+          <span style="font-size: 13px; color: var(--ink-muted);">全栈工程师 · 北京</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 14px; font-weight: 500;">职责：协助打磨控制软件的本地化适配与联调，负责车辆实时数据平台的全栈开发。</div>
+          <ul class="cv-bullets"><li><strong>车辆实时数据平台</strong>：基于卫星定位与 Jupiter II CAN 网关协议，负责卫星数据接口（Webhook/API）对接、后端 API、数据入库与 Web 实时监控看板；与中美团队对接 API 与需求。</li><li><strong>钢轨打磨控制软件</strong>：协助开发钢轨打磨车控制软件，参与需求对接、模块开发与联调测试。</li></ul>
+          <div class="tag-row"><span class="aki-tag">Web Dashboard</span><span class="aki-tag">Webhook / CAN</span><span class="aki-tag">Full-Stack</span></div>
+        </div>
+      </article>
+<article class="cv-entry">
+        <div class="cv-meta">
+          <span class="cv-period">2022.08 — 2022.11</span>
+          <strong style="font-size: 17px;">中国融通科学研究院（Rongtong Research Institute）</strong>
+          <span style="font-size: 13px; color: var(--ink-muted);">全栈工程师 · 北京</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 14px; font-weight: 500;">职责：开发公司级 OA 核心业务流程模块，提升内部审批与协作流转效率。</div>
+          
+          <div class="tag-row"><span class="aki-tag">OA Workflow</span><span class="aki-tag">Full-Stack</span></div>
+        </div>
+      </article>
+<article class="cv-entry">
+        <div class="cv-meta">
+          <span class="cv-period">2020.09 — 2022.03</span>
+          <strong style="font-size: 17px;">Inovonics</strong>
+          <span style="font-size: 13px; color: var(--ink-muted);">实习 &amp; 全栈工程师 · 美国</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 14px; font-weight: 500;">职责：负责基于传统机器学习与传感器数据的养老院异常风险预警系统，覆盖模型训练、后端服务与前端看板。</div>
+          <ul class="cv-bullets"><li><strong>养老院异常风险预警系统</strong>：基于 Scikit-learn（决策树、随机森林、逻辑回归）预测老人未来 10–15 分钟身体异常风险，端到端完成数据清洗、特征工程、训练与部署；用 Python + Angular 构建传感器遥测后端与实时看板。</li></ul>
+          <div class="tag-row"><span class="aki-tag">Scikit-learn</span><span class="aki-tag">Python</span><span class="aki-tag">Angular</span></div>
+        </div>
+      </article></div>
+    </section>
+
+    <section class="two-col-grid" style="margin-top: 36px;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="section-head">
+          <h2>个人项目与教育背景</h2>
+          <span class="section-head-en">PROJECT &amp; EDU</span>
+        </div>
+        <div class="card card-left-accent" style="gap: 8px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;">
+          <strong style="font-size: 16px;">livevents — 乐队演出信息聚合（独立开发）</strong>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); flex-shrink: 0;">2026.10 — 至今</span>
+        </div>
+        <a href="https://livevents.app" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 12px; color: var(--accent);">livevents.app ↗</a>
+        <p style="margin: 0; font-size: 14px; color: var(--ink-secondary);">通过 X webhook 构建「决策模型 + LLM」数据管线，实时捕捉并结构化乐队最新演出信息。</p>
+      </div>
+        <div class="card" style="padding: 18px 24px; gap: 0;"><div class="aki-spec-row">
+    <span class="aki-spec-label">科罗拉多大学博尔德分校（CU Boulder） · 计算机科学硕士 (美国)</span>
+    <span class="aki-spec-value">2020 — 2021</span>
+  </div><div class="aki-spec-row">
+    <span class="aki-spec-label">科罗拉多大学博尔德分校（CU Boulder） · 计算机科学学士 (美国)</span>
+    <span class="aki-spec-value">2017 — 2020</span>
+  </div><div class="aki-spec-row">
+    <span class="aki-spec-label">北京工业大学 · 计算机科学与技术本科学习 (中国)</span>
+    <span class="aki-spec-value">2015 — 2017</span>
+  </div></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="section-head">
+          <h2>专业技能</h2>
+          <span class="section-head-en">SKILLS</span>
+        </div>
+        <div class="card" style="padding: 18px 24px; gap: 0;"><div class="aki-spec-row">
+    <span class="aki-spec-label">编程语言</span>
+    <span class="aki-spec-value">Python、TypeScript / JavaScript、Java、C、SQL</span>
+  </div><div class="aki-spec-row">
+    <span class="aki-spec-label">AI 与 Agent</span>
+    <span class="aki-spec-value">LangGraph、Strands、Bedrock AgentCore、MCP；Agentic RAG、工具调用、上下文管理、HITL、评测、Guardrails、降级、Harness</span>
+  </div><div class="aki-spec-row">
+    <span class="aki-spec-label">AI 辅助开发</span>
+    <span class="aki-spec-value">Claude Code、Codex；多模型组合、任务拆解与委派、Harness 建设、AI 生成代码审查</span>
+  </div><div class="aki-spec-row">
+    <span class="aki-spec-label">后端与数据</span>
+    <span class="aki-spec-value">FastAPI、Celery、PostgreSQL、Redis、DuckDB、Parquet；API 设计、数据建模、异步任务</span>
+  </div><div class="aki-spec-row">
+    <span class="aki-spec-label">前端与工程化</span>
+    <span class="aki-spec-value">TypeScript、Next.js、React、Git、Docker、Nginx、AWS、Pytest、E2E</span>
+  </div><div class="aki-spec-row">
+    <span class="aki-spec-label">学习与协作</span>
+    <span class="aki-spec-value">跨国团队协作与需求沟通；陌生领域快速梳理业务，从 0 到 1 建立工作流</span>
+  </div><div class="aki-spec-row">
+    <span class="aki-spec-label">语言能力</span>
+    <span class="aki-spec-value">英语（专业工作流利）、日语（日常会话）、中文（母语）</span>
+  </div></div>
+      </div>
+    </section>
+  
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 王秋扬 (Aki) · akiaki1996.github.io</span>
+      <div class="footer-links">
+        <a href="https://github.com/akiaki1996" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://livevents.app" target="_blank" rel="noopener noreferrer">livevents.app ↗</a>
+        <a href="mailto:wqiuyang1996@outlook.com">wqiuyang1996@outlook.com</a>
+      </div>
+    </footer>
+  </div>
+  <script src="/scripts/site.js" defer></script>
+</body>
+</html>
