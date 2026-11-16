@@ -1,7 +1,25 @@
-# 笔记本
-主要用作日常生活的记录，同时用作备忘录
+# akiaki1996.github.io
 
+王秋扬（Aki）的个人网站，采用 **Aki Swiss**（瑞士网格极简风 · 森林绿点缀 · 明暗双主题）设计系统与零外部依赖 Node.js 静态构建。
 
-## bugs
-1. 插入图片路径不正确: 参考 [修改方法](https://www.cnblogs.com/BNTang/articles/16583413.html)
-同时，hexo 低版本的可以卸载 hexo-asset-image, 直接使用官方的相对路径[插件](https://hexo.io/zh-cn/docs/asset-folders)
+## 栏目结构
+
+- `/` — 个人枢纽首页（简介、`livevents.app` 与 GitHub 外链、三大板块入口）
+- `/resume/` — 个人简历（支持一键打印 / 导出 PDF，数据源为 `content/resume.json`）
+- `/notes/` — 开发 Notes（支持分类筛选与锚点分享，数据源为 `content/notes/*.md`）
+- `/life/` — 生活与个人档案（完整保留 2023 验光度数与手写原单 `2023glasses.jpg`，数据源为 `content/life/*.md`）
+
+## 本地命令（Node 20+，无需 `npm install`）
+
+```bash
+npm run build   # 生成静态站点至 public/
+npm run dev     # 启动本地预览 http://127.0.0.1:4000（支持监听自动重建）
+npm run deploy  # 构建并推送 public/ 至 origin/deployment 分支
+```
+
+## 新增笔记或更新简历
+
+1. **新增开发 Note**：在 `content/notes/` 下新建 `.md` 文件，加上 `id`、`index`、`title`、`date`、`category`、`tags`、`summary` 的 frontmatter 后运行 `npm run build`。
+2. **新增生活记录**：在 `content/life/` 下新建 `.md` 文件。
+3. **更新简历**：编辑 `content/resume.json`。
+4. **设计稿与 Design System**：保留在 `designs/aki-swiss-ds/` 与 `designs/aki-personal-site/`。

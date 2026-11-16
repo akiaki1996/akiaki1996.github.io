@@ -1,0 +1,21 @@
+<!-- @dsCard group="Metadata" height=64 -->
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><title>Tag — preview</title></head>
+<body>
+<div id="root" class="aki-row"></div>
+<script>
+  var A = window.AkiSwiss, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    h(
+      React.Fragment,
+      null,
+      h(A.Tag, { tone: "accent" }, "PINNED"),
+      h(A.Tag, null, "TypeScript"),
+      h(A.Tag, null, "Dev Note"),
+      h(A.Tag, null, "生活记录")
+    )
+  );
+</script>
+</body>
+</html>

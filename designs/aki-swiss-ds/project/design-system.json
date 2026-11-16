@@ -1,0 +1,42 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-16T09:59:00Z"
+  },
+  "title": "Aki Swiss",
+  "namespace": "AkiSwiss",
+  "libraries": [
+    { "name": "react", "version": "18" },
+    { "name": "react-dom", "version": "18" }
+  ],
+  "sections": {},
+  "groups": ["Marks"],
+  "assetGroups": {
+    "Marks": {
+      "name": "Marks",
+      "tile": "m",
+      "order": ["aki-monogram.svg"],
+      "files": {
+        "aki-monogram.svg": {
+          "name": "aki-monogram.svg",
+          "blob": "c0646e92997b17d4bbc7a659ca74061d",
+          "size": 483,
+          "type": "image/svg+xml"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "lastChange": {
+    "by": "aki",
+    "at": "2026-11-16T10:09:40Z",
+    "via": "Antigravity",
+    "note": "Switch accent color from vermilion red to Swiss forest green (#156d44 / #46c484)"
+  }
+}

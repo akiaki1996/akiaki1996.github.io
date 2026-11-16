@@ -1,0 +1,52 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aki Swiss</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--ground); color: var(--ink); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; width: 960px; height: 288px; overflow: hidden; }
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 288px; overflow: hidden; }
+  .art svg { display: block; width: 480px; height: 288px; }
+  .brand { fill: var(--accent); }
+  .tint { fill: var(--accent-soft); }
+  .strong { fill: var(--line-strong); }
+  .subtle { fill: var(--surface-subtle); }
+  .blk { rx: var(--radius-none); }
+  .rule { stroke: var(--line); stroke-width: 1; }
+  .rule-heavy { stroke: var(--line-strong); stroke-width: 2; }
+  .words { position: absolute; left: var(--space-8); right: var(--space-6); bottom: var(--space-6); max-width: 440px; }
+  .name { margin: 0; font-size: 88px; line-height: 0.92; font-weight: 600; letter-spacing: -0.03em; color: var(--ink); }
+  .tag { margin: var(--space-3) 0 0 2px; font-size: 13px; line-height: 20px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="art" aria-hidden="true">
+    <svg viewBox="0 0 480 288" width="480" height="288">
+      <!--
+        blocks      accent 144x192 (primary forest green module) · line-strong 128x96 (structural anchor) · accent-soft 144x64 (tint relief) · surface-subtle 192x144 (secondary cell)
+        arrangement flush Swiss modular grid occupying x=480..960 with 16px (space-4) gutters and right-edge bleed
+        pattern     editorial hairline rules ("Borders over shadows"): four horizontal and vertical 1px/2px grid rules crossing the modules
+        scales      dimensions in space-4 (16px) and space-6 (24px) multiples; sharp radius-none (0px) corners throughout
+      -->
+      <rect class="subtle blk" x="16" y="24" width="192" height="144"/>
+      <rect class="brand blk" x="224" y="24" width="144" height="192"/>
+      <rect class="strong blk" x="384" y="24" width="112" height="96"/>
+      <rect class="tint blk" x="16" y="184" width="192" height="80"/>
+      <rect class="subtle blk" x="384" y="136" width="112" height="128"/>
+      <line class="rule-heavy" x1="0" y1="24" x2="480" y2="24"/>
+      <line class="rule" x1="0" y1="168" x2="480" y2="168"/>
+      <line class="rule" x1="216" y1="0" x2="216" y2="288"/>
+      <line class="rule" x1="376" y1="0" x2="376" y2="288"/>
+    </svg>
+  </div>
+  <div class="words">
+    <h1 class="name">Aki Swiss</h1>
+    <p class="tag">Swiss grid clarity for resume, dev notes, and life archives.</p>
+  </div>
+</div>
+</body>
+</html>

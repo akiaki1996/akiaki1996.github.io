@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--ground);
+  color: var(--ink);
+}
+
+.aki-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-4);
+}
+
+.aki-stack {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+}
+
+.aki-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border: 1px solid var(--line-control);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.aki-btn:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-subtle);
+}
+
+.aki-btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.aki-btn-primary:hover {
+  opacity: 0.92;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.aki-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink);
+}
+
+.aki-btn-ghost:hover {
+  background: var(--surface-subtle);
+  border-color: var(--line);
+}
+
+.aki-btn:focus-visible {
+  outline: 2px solid var(--line-strong);
+  outline-offset: 2px;
+}
+
+.aki-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--line);
+  background: var(--surface-subtle);
+  color: var(--ink-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.aki-tag-accent {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.aki-spec-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.aki-spec-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.aki-spec-value {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}

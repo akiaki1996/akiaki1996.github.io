@@ -1,0 +1,56 @@
+/* Aki Swiss — generated from tokens.json */
+:root, [data-theme="light"] {
+  --ground: #f7f7f5;
+  --surface: #ffffff;
+  --surface-subtle: #efefe9;
+  --ink: #111111;
+  --ink-secondary: #464644;
+  --ink-muted: #60605d;
+  --line: #c9c9c4;
+  --line-strong: #111111;
+  --line-control: #767670;
+  --accent: #156d44;
+  --accent-soft: #e3f1ea;
+  --on-accent: #ffffff;
+  --shadow-none: none;
+}
+
+[data-theme="dark"] {
+  --ground: #111111;
+  --surface: #191918;
+  --surface-subtle: #222220;
+  --ink: #f4f4f0;
+  --ink-secondary: #bebeb8;
+  --ink-muted: #94948e;
+  --line: #3a3a36;
+  --line-strong: #f4f4f0;
+  --line-control: #6e6e68;
+  --accent: #46c484;
+  --accent-soft: #142b1f;
+  --on-accent: #111111;
+  --shadow-none: none;
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-pill: 999px;
+  --font-sans: "Inter", "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+.display-xl { font-family: var(--font-sans); font-size: 44px; line-height: 48px; font-weight: 600; letter-spacing: -0.025em; }
+.heading-lg { font-family: var(--font-sans); font-size: 26px; line-height: 34px; font-weight: 600; letter-spacing: -0.015em; }
+.heading-md { font-family: var(--font-sans); font-size: 18px; line-height: 26px; font-weight: 600; letter-spacing: -0.01em; }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 25px; font-weight: 400; }
+.body-sm { font-family: var(--font-sans); font-size: 13px; line-height: 20px; font-weight: 400; }
+.mono-label { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.04em; }
+.mono-code { font-family: var(--font-mono); font-size: 13px; line-height: 21px; font-weight: 400; }

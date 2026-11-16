@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>王秋扬 (Aki) · 个人简历</title>
+  <script src="./support.js"></script>
+  <link rel="stylesheet" href="ds/akiswiss/tokens.css">
+  <link rel="stylesheet" href="ds/akiswiss/components/bundle.css">
+  <script src="ds/akiswiss/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: var(--ink); text-decoration: none; }
+    a:hover { color: var(--accent); }
+  </style>
+</helmet>
+<div data-theme="{{activeTheme}}" style="min-height: 100%; background: var(--ground); color: var(--ink); font-family: var(--font-sans);">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 32px 48px 64px; box-sizing: border-box; display: flex; flex-direction: column; gap: 36px;">
+
+    <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 20px; border-bottom: 2px solid var(--line-strong);">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px;">
+        <img src="/_blob/c0646e92997b17d4bbc7a659ca74061d" alt="Aki Swiss monogram" style="width: 32px; height: 32px; display: block;">
+        <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em;">akiaki1996.github.io</span>
+      </a>
+      <nav aria-label="主导航" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+        <a href="Main.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">首页</a>
+        <a href="Resume.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--accent); border-bottom: 2px solid var(--accent);">个人简历</a>
+        <a href="Notes.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">开发 Notes</a>
+        <a href="Life.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">生活与眼镜档案</a>
+        <button type="button" onClick="{{toggleTheme}}" aria-label="切换明暗主题" style="margin-left: 8px; min-height: 40px; padding: 0 12px; border: 1px solid var(--line-control); border-radius: var(--radius-xs); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 12px; cursor: pointer;">{{themeLabel}}</button>
+      </nav>
+    </header>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 32px; align-items: start; padding-bottom: 28px; border-bottom: 1px solid var(--line);">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent);">01 / CURRICULUM VITAE · 2026</div>
+        <h1 style="margin: 0; font-size: 38px; line-height: 1.15; font-weight: 600; letter-spacing: -0.02em;">王秋扬（Aki）</h1>
+        <p style="margin: 0; font-size: 16px; font-weight: 600; color: var(--ink);">AI 全栈工程师 / Agent 开发工程师</p>
+        <ul style="margin: 4px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.6; color: var(--ink-secondary);">
+          <li>AI Agent 与全栈研发经验，负责 2 个生产级平台从数据建模、API、前端到测试上线的完整交付。</li>
+          <li>擅长在数据密集型、强可追溯场景中把 LLM 能力落成可验证功能：用类型、校验、评测与 E2E 测试构成 Agent 反馈回路（harness）。</li>
+        </ul>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
+          <x-import component-from-global-scope="AkiSwiss.Button" variant="primary" onClick="{{printPage}}">打印 / 导出 PDF</x-import>
+          <x-import component-from-global-scope="AkiSwiss.Button" variant="secondary" href="mailto:wqiuyang1996@outlook.com">邮件联系</x-import>
+        </div>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--line); padding: 20px 24px; display: flex; flex-direction: column;">
+        <x-import component-from-global-scope="AkiSwiss.SpecRow" label="邮箱" value="wqiuyang1996@outlook.com"></x-import>
+        <x-import component-from-global-scope="AkiSwiss.SpecRow" label="电话" value="+86 15600786867"></x-import>
+        <x-import component-from-global-scope="AkiSwiss.SpecRow" label="所在地" value="北京"></x-import>
+        <x-import component-from-global-scope="AkiSwiss.SpecRow" label="GitHub" value="github.com/akiaki1996"></x-import>
+        <x-import component-from-global-scope="AkiSwiss.SpecRow" label="独立项目" value="livevents.app"></x-import>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--line-strong); padding-top: 12px;">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600;">工作经历</h2>
+        <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">WORK EXPERIENCE</span>
+      </div>
+
+      <article style="background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">2026.02 — 至今</span>
+          <strong style="font-size: 17px; font-weight: 600;">诺达思信息技术（Noldus Information Technology）</strong>
+          <span style="font-size: 13px; color: var(--ink-muted);">AI Agent 开发工程师 · 北京</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 14px; font-weight: 500; color: var(--ink);">职责：独立负责 EthoInsight 行为学 AI Agent 平台，从 0 到 1 交付数据管线、统计分析与可追溯报告。</div>
+          <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">
+            <li><strong>EthoInsight（行为学数据分析 Agent）</strong>：基于 LangGraph 开发端到端数据分析 Agent，设计「AI 推理 + 确定性计算」架构：AI 负责理解与解读，数字与统计结论由确定性引擎生成并留痕，确保输出结果可溯源。</li>
+            <li><strong>Agent 评测与迭代</strong>：与行为学同事共建 eval 与 golden case，把专家判读标准转化为可自动评分的 benchmark，生成高质量 SFT 轨迹，用于 Qwen 27B 的 SFT + RL 后训练。</li>
+          </ul>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px;">
+            <x-import component-from-global-scope="AkiSwiss.Tag" tone="accent">LangGraph</x-import>
+            <x-import component-from-global-scope="AkiSwiss.Tag">Eval &amp; Harness</x-import>
+            <x-import component-from-global-scope="AkiSwiss.Tag">Qwen 27B SFT+RL</x-import>
+          </div>
+        </div>
+      </article>
+
+      <article style="background: var(--surface); border: 1px solid var(--line); padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--ink-muted);">2025.07 — 2026.02</span>
+          <strong style="font-size: 17px; font-weight: 600;">蓝色光标（BlueFocus）</strong>
+          <span style="font-size: 13px; color: var(--ink-muted);">Agent 开发工程师 · 北京</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 14px; font-weight: 500; color: var(--ink);">职责：负责 AI Agent 视频生成应用 KOX 的多智能体管线与运行时服务。</div>
+          <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">
+            <li><strong>KOX（多智能体视频生成）</strong>：基于 Strands Agents 与 AWS Bedrock AgentCore 搭建多智能体视频管线，编排导演、拍摄、后期三类 Agent，打通从脚本到成片的生产流程。</li>
+            <li>基于 AWS 生态搭建 Agent 运行时工具链，覆盖工具调用、异步任务、状态持久化与 RBAC，配合 FastAPI、Celery 与 PostgreSQL 支撑生产级交付。</li>
+          </ul>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px;">
+            <x-import component-from-global-scope="AkiSwiss.Tag">Strands Agents</x-import>
+            <x-import component-from-global-scope="AkiSwiss.Tag">Bedrock AgentCore</x-import>
+            <x-import component-from-global-scope="AkiSwiss.Tag">FastAPI · Celery · PG</x-import>
+          </div>
+        </div>
+      </article>
+
+      <article style="background: var(--surface); border: 1px solid var(--line); padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--ink-muted);">2022.11 — 2025.06</span>
+          <strong style="font-size: 17px; font-weight: 600;">哈斯科铁路（Harsco Rail）</strong>
+          <span style="font-size: 13px; color: var(--ink-muted);">全栈工程师 · 北京</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 14px; font-weight: 500; color: var(--ink);">职责：协助打磨控制软件的本地化适配与联调，负责车辆实时数据平台的全栈开发。</div>
+          <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">
+            <li><strong>车辆实时数据平台</strong>：基于卫星定位与 Jupiter II CAN 网关协议，负责卫星数据接口（Webhook/API）对接、后端 API、数据入库与 Web 实时监控看板；与中美团队对接 API 与需求。</li>
+            <li><strong>钢轨打磨控制软件</strong>：参与需求对接、模块开发与联调测试。</li>
+          </ul>
+        </div>
+      </article>
+
+      <article style="background: var(--surface); border: 1px solid var(--line); padding: 20px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--ink-muted);">2022.08 — 2022.11</span>
+          <strong style="font-size: 17px; font-weight: 600;">中国融通科学研究院</strong>
+          <span style="font-size: 13px; color: var(--ink-muted);">全栈工程师 · 北京</span>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+          <div style="font-size: 14px; line-height: 1.6; color: var(--ink-secondary);">开发公司级 OA 核心业务流程模块，提升内部审批与协作流转效率。</div>
+        </div>
+      </article>
+
+      <article style="background: var(--surface); border: 1px solid var(--line); padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--ink-muted);">2020.09 — 2022.03</span>
+          <strong style="font-size: 17px; font-weight: 600;">Inovonics</strong>
+          <span style="font-size: 13px; color: var(--ink-muted);">实习 &amp; 全栈工程师 · 美国</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 14px; font-weight: 500; color: var(--ink);">养老院异常风险预警系统（传统 ML + 遥测看板）</div>
+          <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">
+            <li>基于 Scikit-learn（决策树、随机森林、逻辑回归）预测老人未来 10–15 分钟的身体异常风险，端到端完成数据清洗、特征工程、训练与部署。</li>
+            <li>使用 Python + Angular 构建传感器遥测后端与实时看板，将预测结果转化为护理人员可用的预警。</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px;">
+      <div style="border-top: 2px solid var(--line-strong); padding-top: 12px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h2 style="margin: 0; font-size: 20px; font-weight: 600;">个人项目与教育背景</h2>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">PROJECT &amp; EDU</span>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="font-size: 16px;">livevents — 乐队演出信息聚合（独立开发）</strong>
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent);">2026.10 — 至今</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">livevents.app</span>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-secondary);">通过 X webhook 构建「决策模型 + LLM」数据管线，实时捕捉并结构化乐队最新演出信息。</p>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--line); padding: 20px; display: flex; flex-direction: column;">
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="CU Boulder · 计算机科学硕士 (美国)" value="2020 — 2021"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="CU Boulder · 计算机科学学士 (美国)" value="2017 — 2020"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="北京工业大学 · 计算机科学与技术" value="2015 — 2017"></x-import>
+        </div>
+      </div>
+
+      <div style="border-top: 2px solid var(--line-strong); padding-top: 12px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h2 style="margin: 0; font-size: 20px; font-weight: 600;">专业技能</h2>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">SKILLS</span>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--line); padding: 20px; display: flex; flex-direction: column;">
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="编程语言" value="Python / TS / JS / Java / C / SQL"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="AI 与 Agent" value="LangGraph · Strands · AgentCore · MCP · Harness"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="AI 辅助开发" value="Claude Code · Codex · 多模型委派与审查"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="后端与数据" value="FastAPI · Celery · PostgreSQL · Redis · DuckDB"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="前端与工程" value="Next.js · React · Docker · AWS · Pytest · E2E"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="语言能力" value="中文(母语) · 英语(流利) · 日语(日常)"></x-import>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Appearance"},"$preview":{"width":1360,"height":2080}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var activeTheme = this.state.themeOverride || this.props.theme || "light";
+    var nextTheme = activeTheme === "light" ? "dark" : "light";
+    return {
+      activeTheme: activeTheme,
+      themeLabel: activeTheme === "light" ? "DARK" : "LIGHT",
+      toggleTheme: () => this.setState({ themeOverride: nextTheme }),
+      printPage: () => { if (typeof window !== "undefined" && window.print) window.print(); }
+    };
+  }
+}
+</script>
+</body>
+</html>

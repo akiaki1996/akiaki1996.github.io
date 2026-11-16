@@ -1,0 +1,20 @@
+<!-- @dsCard group="Data" height=160 -->
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><title>SpecRow — preview</title></head>
+<body>
+<div id="root" class="aki-stack" style="max-width: 440px;"></div>
+<script>
+  var A = window.AkiSwiss, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    h(
+      React.Fragment,
+      null,
+      h(A.SpecRow, { label: "右眼 (OD)", value: "-7.25 / -1.25 × 5" }),
+      h(A.SpecRow, { label: "左眼 (OS · 优势眼)", value: "-6.75 / -1.25 × 130" }),
+      h(A.SpecRow, { label: "瞳距 (PD)", value: "32.5 右 + 33.5 左 = 66 mm" })
+    )
+  );
+</script>
+</body>
+</html>

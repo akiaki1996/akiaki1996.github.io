@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>王秋扬 (Aki) · 开发 Notes</title>
+  <script src="./support.js"></script>
+  <link rel="stylesheet" href="ds/akiswiss/tokens.css">
+  <link rel="stylesheet" href="ds/akiswiss/components/bundle.css">
+  <script src="ds/akiswiss/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: var(--ink); text-decoration: none; }
+    a:hover { color: var(--accent); }
+  </style>
+</helmet>
+<div data-theme="{{activeTheme}}" style="min-height: 100%; background: var(--ground); color: var(--ink); font-family: var(--font-sans);">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 32px 48px 64px; box-sizing: border-box; display: flex; flex-direction: column; gap: 36px;">
+
+    <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 20px; border-bottom: 2px solid var(--line-strong);">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px;">
+        <img src="/_blob/c0646e92997b17d4bbc7a659ca74061d" alt="Aki Swiss monogram" style="width: 32px; height: 32px; display: block;">
+        <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em;">akiaki1996.github.io</span>
+      </a>
+      <nav aria-label="主导航" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+        <a href="Main.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">首页</a>
+        <a href="Resume.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">个人简历</a>
+        <a href="Notes.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--accent); border-bottom: 2px solid var(--accent);">开发 Notes</a>
+        <a href="Life.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">生活与眼镜档案</a>
+        <button type="button" onClick="{{toggleTheme}}" aria-label="切换明暗主题" style="margin-left: 8px; min-height: 40px; padding: 0 12px; border: 1px solid var(--line-control); border-radius: var(--radius-xs); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 12px; cursor: pointer;">{{themeLabel}}</button>
+      </nav>
+    </header>
+
+    <section style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--line);">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent);">02 / ENGINEERING NOTES</div>
+        <h1 style="margin: 0; font-size: 36px; line-height: 1.15; font-weight: 600; letter-spacing: -0.02em;">Agent 开发手记与工程备忘</h1>
+        <p style="margin: 0; font-size: 15px; color: var(--ink-secondary);">收录自《notes on agent dev.md》与工程排坑记录：按主题筛选并切换章节阅读。</p>
+      </div>
+      <div role="tablist" aria-label="笔记分类筛选" style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <sc-for list="{{categories}}" as="cat" hint-placeholder-count="5">
+          <button type="button" onClick="{{cat.select}}" style="min-height: 40px; padding: 0 14px; border-radius: var(--radius-xs); border: 1px solid {{cat.borderColor}}; background: {{cat.bg}}; color: {{cat.color}}; font-family: var(--font-mono); font-size: 12px; font-weight: 500; cursor: pointer;">{{cat.label}}</button>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 32px; align-items: start;">
+
+      <div style="display: flex; flex-direction: column; border-top: 2px solid var(--line-strong);">
+        <sc-for list="{{visibleNotes}}" as="note" hint-placeholder-count="5">
+          <button type="button" onClick="{{note.select}}" style="text-align: left; width: 100%; padding: 18px 16px; border: 0; border-bottom: 1px solid var(--line); border-left: 3px solid {{note.barColor}}; background: {{note.rowBg}}; color: var(--ink); cursor: pointer; display: flex; flex-direction: column; gap: 6px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%;">
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent);">{{note.index}} · {{note.category}}</span>
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted);">{{note.date}}</span>
+            </div>
+            <div style="font-size: 15px; font-weight: 600; line-height: 1.4; color: var(--ink);">{{note.title}}</div>
+            <div style="font-size: 13px; line-height: 1.5; color: var(--ink-secondary);">{{note.summary}}</div>
+          </button>
+        </sc-for>
+      </div>
+
+      <article style="background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--accent); padding: 32px; display: flex; flex-direction: column; gap: 20px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent);">{{selectedNote.index}} / {{selectedNote.category}}</span>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">{{selectedNote.date}}</span>
+        </div>
+        <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 600;">{{selectedNote.title}}</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <x-import component-from-global-scope="AkiSwiss.Tag" tone="accent">{{selectedNote.tag}}</x-import>
+          <x-import component-from-global-scope="AkiSwiss.Tag">Markdown</x-import>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.75; color: var(--ink-secondary); white-space: pre-line;">{{selectedNote.body}}</p>
+        <div style="background: var(--surface-subtle); border: 1px solid var(--line); padding: 16px; font-family: var(--font-mono); font-size: 12px; line-height: 1.7; color: var(--ink); white-space: pre-line;">{{selectedNote.snippet}}</div>
+        <div style="padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">源文件：docs/notes on agent dev.md</span>
+          <a href="Main.dc.html" style="font-family: var(--font-mono); font-size: 12px; color: var(--accent);">返回首页 →</a>
+        </div>
+      </article>
+
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Appearance"},"$preview":{"width":1360,"height":1360}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var activeTheme = this.state.themeOverride || this.props.theme || "light";
+    var nextTheme = activeTheme === "light" ? "dark" : "light";
+    var activeCat = this.state.activeCat || "全部";
+    var selectedId = this.state.selectedId || "note-1";
+
+    var allNotes = [
+      {
+        id: "note-1",
+        index: "N-01",
+        category: "Agent 哲学",
+        tag: "Harness & RL",
+        date: "2026-11-16",
+        title: "Agent 开发核心哲学：工程化收敛与三大痛点",
+        summary: "LLM + 代码 = Agent 的本质是将概率输出通过端到端 Dogfooding 收敛到目标场景。",
+        body: "1. 核心切入点：先想清楚如何把目标工程化，再识别哪些环节需要 LLM 接入，而不是反过来用大模型硬包一切。\n\n2. 真实痛点（基于 LangGraph / DeerFlow 实践）：\n• 框架耦合：换模型、换 Tool Use 或换 Domain 时重复手搓；\n• 缺乏地图：架构、Prompt、Tool、Skill、策略与 Memory 缺少可按图索骥的联动视图；\n• Agentic RL 的定位：RL 的目的是教会模型「如何使用这个 Agent」，而非把领域知识硬塞进去。",
+        snippet: "Semantic Resolution (Agent 语义消歧)\n  → Deterministic Lowering (Harness 确定性编译)\n  → Zero-Guessing Pure Execution (纯函数安全消费)"
+      },
+      {
+        id: "note-2",
+        index: "N-02",
+        category: "LangGraph 实战",
+        tag: "LangGraph",
+        date: "2026-11-16",
+        title: "LangGraph 核心三件套、Middleware 与 Command",
+        summary: "State + Node + Edge 构成控制流，Middleware 包裹洋葱外层，Command 负责 HITL 安全中断。",
+        body: "• State：TypedDict 配合 Reducer 做增量 update；多节点写同一字段时，由 Reducer 定义合并策略而非默认后写覆盖。\n• Middleware：一组生命周期 Hook（before_agent / before_model / wrap_tool_call）。负责修改完整 State 的 Middleware 必须位于出口最外层。\n• Checkpointer & Command：Checkpointer 保存每步快照与进度；需要人工确认（如 ask_clarification）时，用 Command(goto=END) 带着 State 中断等待恢复。",
+        snippet: "class ThreadState(AgentState):\n    sandbox: NotRequired[SandboxState | None]\n    artifacts: Annotated[list[str], merge_artifacts]\n    viewed_images: Annotated[dict[str, ViewedImageData], merge_viewed_images]"
+      },
+      {
+        id: "note-3",
+        index: "N-03",
+        category: "工程排坑",
+        tag: "Concurrency & Context",
+        date: "2026-11-16",
+        title: "重进程并发隔离、上下文治理与数据搬运",
+        summary: "规避 Python GIL 与 fork 死锁；避免长程信噪比下降，把数据搬运从 LLM 职责中彻底移除。",
+        body: "1. 进程隔离：CPU 密集 + 需崩溃隔离 + 依赖 C 扩展全局状态（如 matplotlib）的任务，在重服务进程中的标准解法是「spawn 轻子进程并在内部开进程池，主进程 asyncio 非阻塞等待」（避开多线程 fork 死锁）。\n\n2. 上下文管理：直接截断旧消息会破坏 JSON / tool_use 配对；步数过多会导致工具返回值稀释注意力、降低信噪比。\n\n3. 消除数据搬运：步骤 A 输出传给步骤 B 时，用 parameterBindings 声明式绑定替代 LLM 复述参数，杜绝字段截断与 ID 混淆。",
+        snippet: "# 核心分工原则\nLLM 擅长：理解意图、规划、推理\n代码擅长：数据搬运（parameterBindings）、格式转换、精确传递"
+      },
+      {
+        id: "note-4",
+        index: "N-04",
+        category: "运行时架构",
+        tag: "4-Layer Model",
+        date: "2026-11-16",
+        title: "多 Agent 边界判据与四层运行时心智模型",
+        summary: "三条拆分边界判据，以及 Run Envelope / Graph / Runtime Extension / Model Interface 四层模型。",
+        body: "只有换来「上下文隔离」「权限分域」「对抗独立（校验者不共享提供者上下文）」三者之一时，才值得拆分 Agent 边界；切忌按人类职位用自然语言互相通信。\n\n运行时四层模型：\n1. Run Envelope：本次运行的身份、Thread、Workspace 与 Sandbox 边界；\n2. Graph：Node/Edge 控制流，State/Channel/Reducer 数据流，Checkpoint vs Store；\n3. Runtime Extension：Hook 插入点、Middleware 组件、Guardrail/Retry/Tracing 等横切策略；\n4. Model Interface：区分 Tool（模型能力入口）与 Service（后端真实实现）。",
+        snippet: "正确契约分层：\nIntent / Planning (Agent) → Action (Typed Tool) → Tool Contract (确定性前后置校验) → Receipt (机读凭据) → Publication Guard"
+      },
+      {
+        id: "note-5",
+        index: "N-05",
+        category: "工程排坑",
+        tag: "Static Site",
+        date: "2026-05-12",
+        title: "静态资源与图片相对路径排查记录",
+        summary: "迁移自原仓库 readme.md 的备忘：保证 post_asset_folder 与相对图片路径在生成后不失效。",
+        body: "此前使用旧静态博客时，Markdown 中的相对图片路径经常在编译后解析错误。\n\n解决方式：开启 post_asset_folder 并保持标准相对路径引用，确保如 2023glasses.jpg 等关键存档图片长期可访问。",
+        snippet: "post_asset_folder: true\n# 保持同级资源目录引用：./2023glasses.jpg"
+      }
+    ];
+
+    var catNames = ["全部", "Agent 哲学", "LangGraph 实战", "运行时架构", "工程排坑"];
+    var categories = catNames.map((label) => {
+      var isActive = activeCat === label;
+      return {
+        label: label,
+        borderColor: isActive ? "var(--accent)" : "var(--line-control)",
+        bg: isActive ? "var(--accent)" : "var(--surface)",
+        color: isActive ? "var(--on-accent)" : "var(--ink)",
+        select: () => this.setState({ activeCat: label })
+      };
+    });
+
+    var filtered = activeCat === "全部" ? allNotes : allNotes.filter((n) => n.category === activeCat);
+    var selectedNote = filtered.find((n) => n.id === selectedId) || filtered[0] || allNotes[0];
+
+    var visibleNotes = filtered.map((n) => {
+      var isSelected = selectedNote && n.id === selectedNote.id;
+      return {
+        id: n.id,
+        index: n.index,
+        category: n.category,
+        date: n.date,
+        title: n.title,
+        summary: n.summary,
+        barColor: isSelected ? "var(--accent)" : "transparent",
+        rowBg: isSelected ? "var(--surface)" : "transparent",
+        select: () => this.setState({ selectedId: n.id })
+      };
+    });
+
+    return {
+      activeTheme: activeTheme,
+      themeLabel: activeTheme === "light" ? "DARK" : "LIGHT",
+      toggleTheme: () => this.setState({ themeOverride: nextTheme }),
+      categories: categories,
+      visibleNotes: visibleNotes,
+      selectedNote: selectedNote
+    };
+  }
+}
+</script>
+</body>
+</html>

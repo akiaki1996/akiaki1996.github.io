@@ -1,0 +1,99 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-16T10:02:00Z"
+  },
+  "title": "Aki 个人网站 · Swiss Grid",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1360,
+      "h": 1220,
+      "title": "00 / 个人枢纽首页 (Desktop)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Resume.dc.html": {
+      "x": 1440,
+      "y": 0,
+      "w": 1360,
+      "h": 2080,
+      "title": "01 / 个人简历 (Resume)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Notes.dc.html": {
+      "x": 2880,
+      "y": 0,
+      "w": 1360,
+      "h": 1360,
+      "title": "02 / 开发笔记 (Dev Notes)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Life.dc.html": {
+      "x": 4320,
+      "y": 0,
+      "w": 1360,
+      "h": 1260,
+      "title": "03 / 个人生活与眼镜档案 (Life)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "MobileHome.dc.html": {
+      "x": 0,
+      "y": 2500,
+      "w": 390,
+      "h": 844,
+      "title": "04 / 手机端首页 (390×844)",
+      "is_interactive": true
+    },
+    "MobileGlasses.dc.html": {
+      "x": 470,
+      "y": 2500,
+      "w": 390,
+      "h": 844,
+      "title": "05 / 手机端配镜速查卡 (390×844)",
+      "is_interactive": true
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Resume.dc.html",
+    "Notes.dc.html",
+    "Life.dc.html",
+    "MobileHome.dc.html",
+    "MobileGlasses.dc.html"
+  ],
+  "notes": {
+    "row-desktop": {
+      "x": 0,
+      "y": -260,
+      "text": "Desktop Pages · 1360px Fluid Swiss Grid",
+      "kind": "title1",
+      "maxW": 5680
+    },
+    "row-mobile": {
+      "x": 0,
+      "y": 2240,
+      "text": "Mobile Screens · 390×844",
+      "kind": "title1",
+      "maxW": 860
+    }
+  },
+  "designSystems": [
+    {
+      "title": "Aki Swiss",
+      "namespace": "akiswiss",
+      "artifact": "designs/aki-swiss-ds",
+      "version": null,
+      "copiedAt": "2026-11-16T10:09:40Z"
+    }
+  ]
+}

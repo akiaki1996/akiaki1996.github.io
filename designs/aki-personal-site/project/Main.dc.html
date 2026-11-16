@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>王秋扬 (Aki) · 个人枢纽首页</title>
+  <script src="./support.js"></script>
+  <link rel="stylesheet" href="ds/akiswiss/tokens.css">
+  <link rel="stylesheet" href="ds/akiswiss/components/bundle.css">
+  <script src="ds/akiswiss/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: var(--ink); text-decoration: none; }
+    a:hover { color: var(--accent); }
+  </style>
+</helmet>
+<div data-theme="{{activeTheme}}" style="min-height: 100%; background: var(--ground); color: var(--ink); font-family: var(--font-sans);">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 32px 48px 64px; box-sizing: border-box; display: flex; flex-direction: column; gap: 48px;">
+
+    <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 20px; border-bottom: 2px solid var(--line-strong);">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px;">
+        <img src="/_blob/c0646e92997b17d4bbc7a659ca74061d" alt="Aki Swiss monogram" style="width: 32px; height: 32px; display: block;">
+        <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; color: var(--ink);">akiaki1996.github.io</span>
+      </a>
+      <nav aria-label="主导航" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+        <a href="Main.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--accent); border-bottom: 2px solid var(--accent);">首页</a>
+        <a href="Resume.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">个人简历</a>
+        <a href="Notes.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">开发 Notes</a>
+        <a href="Life.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">生活与眼镜档案</a>
+        <button type="button" onClick="{{toggleTheme}}" aria-label="切换明暗主题" style="margin-left: 8px; min-height: 40px; padding: 0 12px; border: 1px solid var(--line-control); border-radius: var(--radius-xs); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 12px; cursor: pointer;">{{themeLabel}}</button>
+      </nav>
+    </header>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 32px; align-items: end; padding-bottom: 40px; border-bottom: 1px solid var(--line);">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent);">00 / PERSONAL INDEX · 北京 · AI FULL-STACK &amp; AGENT</div>
+        <h1 style="margin: 0; font-size: 44px; line-height: 1.1; font-weight: 600; letter-spacing: -0.025em; color: var(--ink);">王秋扬 / Aki</h1>
+        <p style="margin: 0; font-size: 16px; line-height: 1.65; color: var(--ink-secondary); max-width: 580px;">AI 全栈工程师 / Agent 开发工程师。专注在数据密集与强可追溯场景中把 LLM 能力落成可验证的生产级系统（EthoInsight、KOX、livevents.app），这里收纳我的个人简历、Agent 开发手记与生活档案。</p>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--line); padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-muted);">PROFILE &amp; LINKS</div>
+        <x-import component-from-global-scope="AkiSwiss.SpecRow" label="当前职位" value="AI Agent 开发工程师 · 诺达思"></x-import>
+        <x-import component-from-global-scope="AkiSwiss.SpecRow" label="教育背景" value="CU Boulder · 计算机科学硕士"></x-import>
+        <x-import component-from-global-scope="AkiSwiss.SpecRow" label="常驻 / 邮箱" value="北京 · wqiuyang1996@outlook.com"></x-import>
+        <a href="https://livevents.app" style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line);">
+          <span style="font-size: 13px; color: var(--ink-muted);">独立项目</span>
+          <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--accent);">livevents.app ↗</span>
+        </a>
+        <a href="https://github.com/akiaki1996" style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line);">
+          <span style="font-size: 13px; color: var(--ink-muted);">GitHub</span>
+          <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--accent);">github.com/akiaki1996 ↗</span>
+        </a>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
+          <x-import component-from-global-scope="AkiSwiss.Button" variant="primary" href="Resume.dc.html">查看完整简历</x-import>
+          <x-import component-from-global-scope="AkiSwiss.Button" variant="secondary" href="Notes.dc.html">阅读 Agent Notes</x-import>
+          <x-import component-from-global-scope="AkiSwiss.Button" variant="secondary" href="https://livevents.app">访问 livevents.app</x-import>
+        </div>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px; align-items: stretch;">
+
+      <article style="background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--line-strong); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">01 / RESUME</span>
+            <x-import component-from-global-scope="AkiSwiss.Tag">CV · 2026</x-import>
+          </div>
+          <h2 style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600;">个人简历与技术履历</h2>
+          <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">涵盖诺达思 EthoInsight、蓝色光标 KOX 多智能体管线、哈斯科铁路实时数据平台、Inovonics 及独立项目 livevents.app。</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px;">
+            <x-import component-from-global-scope="AkiSwiss.Tag">LangGraph</x-import>
+            <x-import component-from-global-scope="AkiSwiss.Tag">Python</x-import>
+            <x-import component-from-global-scope="AkiSwiss.Tag">TypeScript</x-import>
+            <x-import component-from-global-scope="AkiSwiss.Tag">FastAPI</x-import>
+          </div>
+        </div>
+        <div style="padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">5 段工程履历 · 2 个生产平台</span>
+          <a href="Resume.dc.html" style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">进入简历 →</a>
+        </div>
+      </article>
+
+      <article style="background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--line-strong); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">02 / DEV NOTES</span>
+            <x-import component-from-global-scope="AkiSwiss.Tag" tone="accent">AGENT DEV</x-import>
+          </div>
+          <h2 style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600;">Agent 开发工程手记与备忘</h2>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <a href="Notes.dc.html" style="display: flex; flex-direction: column; gap: 4px; padding-bottom: 12px; border-bottom: 1px solid var(--line);">
+              <span style="font-size: 14px; font-weight: 500; color: var(--ink);">Agent 开发核心哲学：Semantic Resolution 与 Harness</span>
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">N-01 · Agent 哲学 · 痛点与 Agentic RL</span>
+            </a>
+            <a href="Notes.dc.html" style="display: flex; flex-direction: column; gap: 4px; padding-bottom: 12px; border-bottom: 1px solid var(--line);">
+              <span style="font-size: 14px; font-weight: 500; color: var(--ink);">LangGraph 三件套、Middleware 与进程隔离</span>
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">N-02 / N-03 · LangGraph · GIL / Spawn</span>
+            </a>
+            <a href="Notes.dc.html" style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-size: 14px; font-weight: 500; color: var(--ink);">多 Agent 边界判据与四层运行时心智模型</span>
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">N-04 · 运行时架构 · Envelope / Graph / Model</span>
+            </a>
+          </div>
+        </div>
+        <div style="padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">5 篇工程笔记已收录</span>
+          <a href="Notes.dc.html" style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">全部 Notes →</a>
+        </div>
+      </article>
+
+      <article style="background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--accent); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">03 / LIFE ARCHIVE</span>
+            <x-import component-from-global-scope="AkiSwiss.Tag" tone="accent">PINNED</x-import>
+          </div>
+          <h2 style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600;">2023 眼镜度数与生活切片</h2>
+          <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">保留自 2023-05-12 的验光参数，方便日后配镜随时查阅，同时收纳日常演出、书影与个人记录。</p>
+          <div style="background: var(--surface-subtle); padding: 12px 16px; display: flex; flex-direction: column;">
+            <x-import component-from-global-scope="AkiSwiss.SpecRow" label="右眼 OD" value="-7.25 / -1.25 × 5"></x-import>
+            <x-import component-from-global-scope="AkiSwiss.SpecRow" label="左眼 OS (优势眼)" value="-6.75 / -1.25 × 130"></x-import>
+            <x-import component-from-global-scope="AkiSwiss.SpecRow" label="瞳距 PD" value="66 mm (右32.5 / 左33.5)"></x-import>
+          </div>
+        </div>
+        <div style="padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">验光单原图已归档</span>
+          <a href="Life.dc.html" style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">查看原图与生活 →</a>
+        </div>
+      </article>
+
+    </section>
+
+    <footer style="padding-top: 24px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">
+      <span>© 2026 王秋扬 (Aki) · akiaki1996.github.io</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+        <a href="https://github.com/akiaki1996" style="color: var(--ink-muted);">GitHub ↗</a>
+        <a href="https://livevents.app" style="color: var(--ink-muted);">livevents.app ↗</a>
+        <span>wqiuyang1996@outlook.com</span>
+      </div>
+    </footer>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Appearance"},"$preview":{"width":1360,"height":1220}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var activeTheme = this.state.themeOverride || this.props.theme || "light";
+    var nextTheme = activeTheme === "light" ? "dark" : "light";
+    return {
+      activeTheme: activeTheme,
+      themeLabel: activeTheme === "light" ? "DARK" : "LIGHT",
+      toggleTheme: () => this.setState({ themeOverride: nextTheme })
+    };
+  }
+}
+</script>
+</body>
+</html>

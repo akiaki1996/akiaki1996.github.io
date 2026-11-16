@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>Aki · 生活与眼镜档案</title>
+  <script src="./support.js"></script>
+  <link rel="stylesheet" href="ds/akiswiss/tokens.css">
+  <link rel="stylesheet" href="ds/akiswiss/components/bundle.css">
+  <script src="ds/akiswiss/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: var(--ink); text-decoration: none; }
+    a:hover { color: var(--accent); }
+  </style>
+</helmet>
+<div data-theme="{{activeTheme}}" style="min-height: 100%; background: var(--ground); color: var(--ink); font-family: var(--font-sans);">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 32px 48px 64px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px;">
+
+    <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 20px; border-bottom: 2px solid var(--line-strong);">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px;">
+        <img src="/_blob/c0646e92997b17d4bbc7a659ca74061d" alt="Aki Swiss monogram" style="width: 32px; height: 32px; display: block;">
+        <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em;">akiaki1996.github.io</span>
+      </a>
+      <nav aria-label="主导航" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+        <a href="Main.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">首页</a>
+        <a href="Resume.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">个人简历</a>
+        <a href="Notes.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--ink-secondary);">开发 Notes</a>
+        <a href="Life.dc.html" style="padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--accent); border-bottom: 2px solid var(--accent);">生活与眼镜档案</a>
+        <button type="button" onClick="{{toggleTheme}}" aria-label="切换明暗主题" style="margin-left: 8px; min-height: 40px; padding: 0 12px; border: 1px solid var(--line-control); border-radius: var(--radius-xs); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 12px; cursor: pointer;">{{themeLabel}}</button>
+      </nav>
+    </header>
+
+    <section style="display: flex; flex-direction: column; gap: 10px; padding-bottom: 24px; border-bottom: 1px solid var(--line);">
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent);">03 / LIFE &amp; PERSONAL ARCHIVE</div>
+      <h1 style="margin: 0; font-size: 36px; line-height: 1.15; font-weight: 600; letter-spacing: -0.02em;">个人生活与长期备忘档案</h1>
+      <p style="margin: 0; font-size: 15px; color: var(--ink-secondary); max-width: 680px;">存放脱离工作代码之外的个人备忘、日常碎片与长期参考数据。首条保留自原站点的 2023 年验光度数记录。</p>
+    </section>
+
+    <section style="background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--accent); padding: 32px; display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <x-import component-from-global-scope="AkiSwiss.Tag" tone="accent">PERMANENT RECORD</x-import>
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">2023-05-12 · 类别：日常</span>
+          </div>
+          <h2 style="margin: 0; font-size: 24px; font-weight: 600;">2023 验光度数记录</h2>
+        </div>
+        <button type="button" onClick="{{togglePhoto}}" style="min-height: 40px; padding: 0 14px; border: 1px solid var(--line-control); border-radius: var(--radius-xs); background: var(--surface-subtle); color: var(--ink); font-family: var(--font-mono); font-size: 12px; cursor: pointer;">{{photoBtnLabel}}</button>
+      </div>
+
+      <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">2023 年初做的验光，记录以下，留作以后配镜使用。</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 32px; align-items: start;">
+        <div style="display: flex; flex-direction: column; background: var(--surface-subtle); padding: 20px 24px; border: 1px solid var(--line);">
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-muted); padding-bottom: 8px; border-bottom: 1px solid var(--line);">OPTOMETRY SPECIFICATION</div>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="优势眼 (Dominant)" value="左眼 (OS)"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="右眼 (R / OD)" value="-7.25  -1.25 × 5"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="左眼 (L / OS)" value="-6.75  -1.25 × 130"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="单眼瞳距 (PD)" value="右 32.5 mm · 左 33.5 mm"></x-import>
+          <x-import component-from-global-scope="AkiSwiss.SpecRow" label="总瞳距 (Total PD)" value="66 mm"></x-import>
+        </div>
+
+        <sc-if value="{{showPhoto}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="border: 1px solid var(--line); background: var(--ground); padding: 8px;">
+              <img src="/_blob/abec962f66e6ddb53554dad968dbbb0e" alt="2023 年手写验光度数原单：优左，R -7.25 -1.25x5，L -6.75 -1.25x130，PD 右32.5 左33.5 总66" style="width: 100%; height: auto; display: block; object-fit: contain;">
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted);">原件附件：2023glasses.jpg（手写验光单）</span>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 24px;">
+      <article style="background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--line-strong); padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent);">LIFE-01</span>
+          <x-import component-from-global-scope="AkiSwiss.Tag">随笔</x-import>
+        </div>
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600;">[日常碎片与随记占位]</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">[用于记录旅行、生活感悟、周末散步或值得记住的小事，保持简单按日期倒序追加。]</p>
+        <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">[2026-XX-XX]</span>
+      </article>
+
+      <article style="background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--line-strong); padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent);">LIFE-02</span>
+          <x-import component-from-global-scope="AkiSwiss.Tag">书影</x-import>
+        </div>
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600;">[书影音与兴趣清单占位]</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">[最近读完的书、喜欢的电影或游戏，附一两句自己的短评。]</p>
+        <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">[待补充]</span>
+      </article>
+
+      <article style="background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--line-strong); padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent);">LIFE-03</span>
+          <x-import component-from-global-scope="AkiSwiss.Tag">EDC / 桌面</x-import>
+        </div>
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600;">[常用设备与生活好物占位]</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">[记录主力电脑、键盘、镜框型号或咖啡/家居等长期复购清单。]</p>
+        <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">[待补充]</span>
+      </article>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Appearance"},"$preview":{"width":1360,"height":1260}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var activeTheme = this.state.themeOverride || this.props.theme || "light";
+    var nextTheme = activeTheme === "light" ? "dark" : "light";
+    var showPhoto = this.state.showPhoto !== false;
+    return {
+      activeTheme: activeTheme,
+      themeLabel: activeTheme === "light" ? "DARK" : "LIGHT",
+      toggleTheme: () => this.setState({ themeOverride: nextTheme }),
+      showPhoto: showPhoto,
+      photoBtnLabel: showPhoto ? "收起验光原单" : "展开验光原单",
+      togglePhoto: () => this.setState({ showPhoto: !showPhoto })
+    };
+  }
+}
+</script>
+</body>
+</html>

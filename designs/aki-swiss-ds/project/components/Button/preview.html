@@ -1,0 +1,20 @@
+<!-- @dsCard group="Actions" height=80 -->
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><title>Button — preview</title></head>
+<body>
+<div id="root" class="aki-row"></div>
+<script>
+  var A = window.AkiSwiss, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    h(
+      React.Fragment,
+      null,
+      h(A.Button, { variant: "primary" }, "查看个人简历"),
+      h(A.Button, { variant: "secondary" }, "开发 Notes"),
+      h(A.Button, { variant: "ghost" }, "2023 眼镜度数")
+    )
+  );
+</script>
+</body>
+</html>

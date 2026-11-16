@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>Aki · 手机端配镜速查卡</title>
+  <script src="./support.js"></script>
+  <link rel="stylesheet" href="ds/akiswiss/tokens.css">
+  <link rel="stylesheet" href="ds/akiswiss/components/bundle.css">
+  <script src="ds/akiswiss/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: var(--ink); text-decoration: none; }
+  </style>
+</helmet>
+<div data-theme="{{activeTheme}}" style="min-height: 100%; background: var(--ground); color: var(--ink); font-family: var(--font-sans);">
+  <div style="padding: 20px 16px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px;">
+
+    <header style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 14px; border-bottom: 2px solid var(--line-strong);">
+      <a href="MobileHome.dc.html" style="min-height: 44px; display: flex; align-items: center; font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">← 返回首页</a>
+      <button type="button" onClick="{{toggleTheme}}" aria-label="切换明暗主题" style="min-height: 44px; min-width: 64px; padding: 0 12px; border: 1px solid var(--line-control); border-radius: var(--radius-xs); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 12px; cursor: pointer;">{{themeLabel}}</button>
+    </header>
+
+    <section style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent);">OPTOMETRY · 2023-05-12</span>
+        <x-import component-from-global-scope="AkiSwiss.Tag" tone="accent">配镜留档</x-import>
+      </div>
+      <h1 style="margin: 0; font-size: 26px; line-height: 1.2; font-weight: 600;">2023 眼镜度数速查</h1>
+      <p style="margin: 0; font-size: 13px; line-height: 1.6; color: var(--ink-secondary);">2023 年初验光记录，线下或线上配镜时直接核对以下参数与手写原单。</p>
+    </section>
+
+    <section style="background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--accent); padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line);">
+        <div style="background: var(--surface-subtle); padding: 12px; display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted);">右眼 R (OD)</span>
+          <strong style="font-family: var(--font-mono); font-size: 16px; color: var(--ink);">-7.25</strong>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-secondary);">散光 -1.25 × 5</span>
+        </div>
+        <div style="background: var(--surface-subtle); padding: 12px; display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent);">左眼 L · 优势眼</span>
+          <strong style="font-family: var(--font-mono); font-size: 16px; color: var(--ink);">-6.75</strong>
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-secondary);">散光 -1.25 × 130</span>
+        </div>
+      </div>
+      <x-import component-from-global-scope="AkiSwiss.SpecRow" label="单眼瞳距 (右 / 左)" value="32.5 / 33.5 mm"></x-import>
+      <x-import component-from-global-scope="AkiSwiss.SpecRow" label="总瞳距 (Total PD)" value="66 mm"></x-import>
+      <x-import component-from-global-scope="AkiSwiss.SpecRow" label="优势眼 (Dominant)" value="左眼 (OS)"></x-import>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted);">ORIGINAL PHOTO · 2023glasses.jpg</div>
+      <div style="border: 1px solid var(--line); background: var(--surface); padding: 6px;">
+        <img src="/_blob/abec962f66e6ddb53554dad968dbbb0e" alt="2023 年手写验光度数原单" style="width: 100%; height: auto; display: block;">
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Appearance"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var activeTheme = this.state.themeOverride || this.props.theme || "light";
+    var nextTheme = activeTheme === "light" ? "dark" : "light";
+    return {
+      activeTheme: activeTheme,
+      themeLabel: activeTheme === "light" ? "DARK" : "LIGHT",
+      toggleTheme: () => this.setState({ themeOverride: nextTheme })
+    };
+  }
+}
+</script>
+</body>
+</html>
