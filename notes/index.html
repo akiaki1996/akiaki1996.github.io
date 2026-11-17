@@ -57,10 +57,10 @@
         <button type="button" class="note-index-btn is-selected" data-note-target="agent-dev" data-note-cat="Agent 架构">
         <div style="display: flex; justify-content: space-between; gap: 12px; font-family: var(--font-mono); font-size: 11px;">
           <span style="color: var(--accent);">N-01 · Agent 架构</span>
-          <span style="color: var(--ink-muted);">2026-11-16</span>
+          <span style="color: var(--ink-muted);">2026-11-17</span>
         </div>
-        <strong style="font-size: 15px; line-height: 1.4;">Agent 开发工程手记：LangGraph、Harness 与四层心智模型</strong>
-        <span style="font-size: 13px; color: var(--ink-secondary);">整理自一线 Agent 开发实战：工程化收敛哲学、三大痛点、LangGraph 机制、GIL 进程隔离、上下文治理与四层运行时模型。</span>
+        <strong style="font-size: 15px; line-height: 1.4;">Agent 开发工程手记：确定性契约、进程隔离与两节点状态机</strong>
+        <span style="font-size: 13px; color: var(--ink-secondary);">一线 Agent 开发实战：Semantic Resolution 哲学、非 LLM 契约判定（Gaps / 可估计性）、Gateway 三级并发隔离、两节点 ReAct 状态机与四层运行时模型。</span>
       </button>
         <button type="button" class="note-index-btn" data-note-target="static-asset-paths" data-note-cat="工程排坑">
         <div style="display: flex; justify-content: space-between; gap: 12px; font-family: var(--font-mono); font-size: 11px;">
@@ -75,11 +75,11 @@
         <article class="note-article" data-note-article="agent-dev">
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: var(--font-mono); font-size: 12px; margin-bottom: 12px;">
           <span style="color: var(--accent);">N-01 / Agent 架构</span>
-          <span style="color: var(--ink-muted);">2026-11-16</span>
+          <span style="color: var(--ink-muted);">2026-11-17</span>
         </div>
-        <h2 style="margin: 0 0 14px; font-size: 26px; line-height: 1.3;">Agent 开发工程手记：LangGraph、Harness 与四层心智模型</h2>
+        <h2 style="margin: 0 0 14px; font-size: 26px; line-height: 1.3;">Agent 开发工程手记：确定性契约、进程隔离与两节点状态机</h2>
         <div class="tag-row" style="margin-bottom: 24px;">
-          <span class="aki-tag aki-tag-accent">LangGraph</span><span class="aki-tag">Harness</span><span class="aki-tag">Multi-Agent</span><span class="aki-tag">Runtime</span>
+          <span class="aki-tag aki-tag-accent">LangGraph</span><span class="aki-tag">Harness</span><span class="aki-tag">Multi-Agent</span><span class="aki-tag">Event Loop</span>
         </div>
         <div class="md-body"><blockquote><p>整理自日常开发实战（主要基于 LangGraph、DeerFlow 与多智能体运行时架构）。</p></blockquote>
 <h2>1. 核心哲学与摘要</h2>
@@ -87,7 +87,7 @@
 <p><strong>更好的切入思路</strong>：先想清楚如何将一个业务目标工程化，再识别其中哪些环节适合由 LLM 接入，而不是反过来用大模型硬包一切。</p>
 <blockquote><p><strong>核心架构哲学</strong>：让 Agent 只做「语义消歧（Semantic Resolution）」，让 Harness 做「确定性编译（Deterministic Lowering）」，让下游执行层做「零猜测的纯函数消费（Zero-Guessing Pure Execution）」。只让大模型做它不可替代的事（理解模糊意图），绝不让大模型做传统代码能完美搞定的事（数据搬运、逻辑拼装与安全执行）。</p></blockquote>
 <h2>2. 当前 Agent 开发的三个核心痛点</h2>
-<p>虽然我的主要实践基于 LangGraph 与上层的 DeerFlow，但大部分 Agent 系统面临的痛点高度相似：</p>
+<p>虽然主要实践基于 LangGraph 与上层的 DeerFlow，但大部分 Agent 系统面临的痛点高度相似：</p>
 <ol><li><strong>框架耦合重、手搓成本高</strong>：缺少合理的抽象框架，每次切换模型、更换 Tool Use 范式或迁移 Domain 都需要大量重写（其中垂直 Domain 的重写尚可接受，但底层重复劳动过多）。</li><li><strong>缺乏可追溯的迭代地图</strong>：架构、Prompt、Tool、Skill、策略与 Memory 之间缺少可视化、按图索骥的关联方式。每次迭代更新或线上排障时，难以快速定位并联动修改（例如切换底层 LLM API 或业务域时）。</li><li><strong>Agentic RL 的真实诉求</strong>：在落地深水区，最终往往需要一个经过微调的模型来驱动这套 Agent；而 <strong>Agentic RL 的核心目的是教会模型「如何使用这个 Agent」，而不是一股脑地把领域知识塞给模型</strong>。</li></ol>
 <h2>3. Harness 与 LangGraph 实战机制</h2>
 <h3>3.1 Harness 生命周期</h3>
@@ -114,23 +114,41 @@
          │ 结果写回 messages
          └─────→ 回到 model</code></pre>
 <h3>3.3 Middleware、Reducer、Checkpointer 与 Command</h3>
-<ul><li><strong>Middleware</strong>：本质是一组生命周期 Hook，在不改变 Graph 拓扑的前提下，在固定时机（<code>before_agent</code> / <code>after_agent</code> / <code>before_model</code> / <code>after_model</code>）执行横切逻辑。Node 是洋葱核，Middleware 是包裹它的外层；<strong>负责收口修改完整 State 的 Middleware 必须位于出口最外层</strong>。</li><li><strong>Reducer</strong>：当多个节点同时写入同一个字段（如 <code>artifacts</code> 或 <code>messages</code>）时，定义合并策略而非默认后写覆盖。</li><li><strong>Checkpointer</strong>：状态持久化层，在每一步执行后保存当前 <code>State</code> 快照、执行进度与 <code>pending writes</code>，用于断点续跑与历史回放。</li><li><strong>Command（Human-in-the-Loop）</strong>：需要人工介入（如调用 <code>ask_clarification</code> 工具）时，通过 LangGraph 的 <code>Command</code> 带着当前 <code>State</code> 中断并跳转（如 <code>goto=END</code>），等待确认后恢复。</li></ul>
-<h2>4. 工程经验：进程隔离、上下文治理与数据搬运</h2>
-<h3>4.1 重进程内的 CPU 密集型任务并发（Python GIL 与 Fork/Spawn）</h3>
-<p>Agent 运行时是一个较重的服务进程。受 Python GIL 限制（线程池仅适合 I/O 密集型），CPU 密集型任务需独立进程池隔离执行：</p>
-<ul><li><code>fork</code> 若在多线程父进程中触发，子进程仅继承单线程却可能继承锁状态，极易引发 <strong>Deadlock</strong>，且对依赖 C 扩展全局状态（如 <code>matplotlib</code>）的任务不安全。</li><li><strong>标准解法</strong>：<strong><code>spawn</code> 轻子进程并在子进程内开进程池，主进程使用 <code>asyncio</code> 非阻塞等待</strong>。</li></ul>
-<h3>4.2 上下文生命周期与信噪比衰减</h3>
+<ul><li><strong>Middleware</strong>：本质是一组生命周期 Hook，在不改变 Graph 拓扑的前提下，在固定时机（<code>before_agent</code> / <code>after_agent</code> / <code>before_model</code> / <code>after_model</code>）执行横切逻辑。Node 是洋葱核，Middleware 是包裹它的外层；<strong>负责收口修改完整 State 的 Middleware 必须位于出口最外层</strong>。</li><li><strong>Reducer</strong>：当多个节点同时写入同一个字段（如 <code>artifacts</code> 或 <code>messages</code>）时，定义合并策略而非默认后写覆盖。</li><li><strong>Checkpointer</strong>：状态持久化层，在每一步执行后保存当前 <code>State</code> 快照、执行进度与 <code>pending writes</code>，用于断点续跑与历史回放。</li><li><strong>Command（Human-in-the-Loop）</strong>：需要人工介入（如调用 <code>ask_clarification</code> 工具）或推进阶段状态时，通过 LangGraph 的 <code>Command</code> 更新状态并控制跳转（如 <code>goto=END</code>），等待确认后恢复。</li></ul>
+<h2>4. 上下文治理、数据搬运与多 Agent 边界</h2>
+<h3>4.1 上下文生命周期与信噪比衰减</h3>
 <p>粗暴截断早期消息会破坏 JSON 与 <code>tool_use</code> / <code>tool_result</code> 配对；而步数增加会堆积大量原始工具返回，导致有效信息占比下降（信噪比降低）、稀释 LLM 注意力。因此需要一套完整的上下文压缩、摘要与生命周期管理。</p>
-<h3>4.3 消除「数据搬运」职责</h3>
-<p>步骤 A 的输出传给步骤 B 时，若依赖模型提取并重拼参数，易出现字符串截断、字段遗漏或 ID 混淆。核心原则是：<strong>让 LLM 做它擅长的事（理解意图、规划、推理），让系统做它擅长的事（通过 <code>parameterBindings</code> 声明式绑定完成数据搬运与精确传递）。</strong></p>
-<h2>5. 多 Agent 编排与边界判据</h2>
-<h3>5.1 Agent 边界的三条判据</h3>
+<h3>4.2 消除「数据搬运」职责</h3>
+<p>步骤 A 的输出传给步骤 B 时，若依赖模型提取并重拼参数，易出现字符串截断、字段遗漏或 ID 混淆。核心原则是：<strong>让 LLM 做它擅长的事（理解意图、规划、推理），让系统做它擅长的事（通过 <code>parameterBindings</code> 声明式绑定，或由执行器直接读取 <code>AnalysisScope</code> 完成精确传递）。</strong></p>
+<h3>4.3 Agent 边界的三条判据</h3>
 <p>拆分独立 Agent 边界，只有在换来以下至少一项收益时才成立，否则得不偿失：</p>
 <ol><li><strong>上下文隔离</strong>：避免不同子任务的中间过程互相污染注意力。</li><li><strong>权限分域</strong>：隔离不同的数据读写权限与工具集合。</li><li><strong>对抗独立</strong>：校验者不能共享提供者的上下文。</li></ol>
-<h3>5.2 多 Agent 编排误区与契约分层</h3>
-<p>切忌按人类组织角色让 Subagent 用自然语言互相对话，这会引入极高的不确定性成本；应优先采用结构化契约与确定性路由。Agent 负责理解意图并选择行动，Middleware 只基于 <code>action</code>、<code>state</code>、<code>receipt</code> 和最终输出 <code>claims</code> 执行确定性契约：</p>
-<ol><li><strong>Intent / Planning</strong>：由 Agent 根据自然语言与 Tool Schema 自主决策。</li><li><strong>Action</strong>：Agent 调用强类型的 Typed Tool。</li><li><strong>Tool Contract</strong>：由代码执行确定性的前置与后置校验。</li><li><strong>Receipt</strong>：Tool 成功后留下机器可读凭据。</li><li><strong>Publication Guard</strong>：最终输出前核验 <code>claims</code> 与 <code>receipts</code> 一致性。</li></ol>
-<h2>6. Agent 运行时四层心智模型</h2>
+<h3>4.4 为什么放弃「复刻人类岗位」的常驻 Subagent</h3>
+<p>早期尝试模仿人类社会分工设置常驻 Subagent（本质是「复刻人类研究所岗位」），结果把系统正确性押在了<strong>有损、可伪造、姿势敏感的对话上下文与散文交接单</strong>里，引发 seal 漏调、手抄数字矛盾、正则闸口死锁等一连串补丁。</p>
+<p>应优先采用结构化契约与确定性路由，并遵循五层契约分工：</p>
+<ol><li><strong>Intent / Planning</strong>：由 Agent 根据自然语言与 Tool Schema 自主决策。</li><li><strong>Action</strong>：Agent 调用强类型的 Typed Tool（Tool 内部调用 Service 完成确定性计算并输出 JSON）。</li><li><strong>Tool Contract</strong>：由代码执行确定性的前置与后置校验。</li><li><strong>Receipt</strong>：Tool 成功后留下机器可读凭据。</li><li><strong>Publication Guard</strong>：最终输出前核验 <code>claims</code> 与 <code>receipts</code> 一致性。</li></ol>
+<h2>5. 实战案例：把确定性判断从 LLM 脑子里剥离</h2>
+<p>所有「可形式化定义、有明确标准答案」的判断都不应交由 LLM 猜测，而应写成纯 Python 的结构化契约：</p>
+<h3>5.1 不用 LLM 如何「对比 Gaps（语义缺口）」</h3>
+<p>Gaps 不是靠自然语言“看懂还缺什么”，而是<strong>结构化清单的集合求差</strong>：</p>
+<ol><li><strong>上游建档算差集（Stage 1）</strong>：上传进入 <code>admit_analysis_scope</code> 时，Python 根据选定范式的 <code>catalog/&lt;paradigm&gt;.yaml</code> 必填槽位，拿解析元数据与已确认字典逐槽位求差集，缺项写入 <code>AnalysisScope.gaps</code>；用户提交卡片后由 <code>commit_scope_patch</code> 消去对应条目。</li><li><strong>Pipeline 入口有效语义过滤（Stage 2）</strong>：<code>arun_analysis_pipeline</code> 读取 <code>scope</code> 后，通过纯 Python 规则函数过滤（如 <code>descriptive_only</code> / <code>group_design == &quot;none&quot;</code> 时退化 <code>subject_id</code> 与 <code>group</code> 槽位，或跳过已排除 trial）；若 <code>gaps</code> 仍非空，直接转为交互卡片终止管线等待填写。</li></ol>
+<h3>5.2 不用 LLM 如何判断「设计可估计性（Design Estimability）」</h3>
+<p>在 <code>build_execution_contract → _design_estimability → _phase_capabilities</code> 中，Python 对活跃实验单元按 <code>phase</code> 分桶直接数 4 个指标：<code>n_groups</code>、<code>min_animals_per_group</code>、<code>max_observations_per_animal</code>、<code>ungrouped_units</code>（及 <code>identity_repeat_safe</code>），然后套用硬规则：</p>
+<ul><li><strong>组间推断统计</strong>：<code>group_comparison = ready and not descriptive_enabled and n_groups &gt;= 2 and min_animals &gt;= 3</code>。不满足时直接置为 <code>inferential_statistics = False</code>、<code>underpowered = True</code>、<code>effective_report_mode = &quot;descriptive&quot;</code>，自动降级描述性报告。</li><li><strong>重复测量模型</strong>：<code>repeated_measures = ready and max_obs &gt;= 2</code>。单只动物只有 1 次观测时直接拦截，避免送入 MixedLM 报错。</li></ul>
+<blockquote><p><strong>一句话总结</strong>：<code>gaps = 必填槽位 - 已确认槽位 - 已豁免/排除槽位</code>；<code>design_estimability = 分组与样本计数 + 统计学准入门槛</code>。1 毫秒稳定出结论，彻底杜绝大模型“觉得 2 只样本也能试试 t 检验”的幻觉。</p></blockquote>
+<h2>6. 并发与进程隔离：保住 Gateway Event Loop 的呼吸权</h2>
+<p>把重活卸载给独立 Worker，更精准的目的不是防“单个 Agent 自己的 while loop”，而是<strong>为了不冻死整个 Gateway 进程的 <code>asyncio</code> 主事件循环（Event Loop）</strong>——单线程事件循环同时服务全站所有用户的对话、SSE 吐字、<code>/health</code>、鉴权与进度推送。</p>
+<h3>6.1 同步阻塞事件循环的三类线上事故</h3>
+<ol><li><strong>一人算数据，全站 504 雪崩（ADR-0009）</strong>：同步收尾逻辑阻塞主循环 142–323 秒，全站接口无响应直接 504。</li><li><strong>SSE 进度推送哑火</strong>：主循环被占死导致进度事件无法推向前端，页面持续转圈卡死。</li><li><strong>心跳饿死导致存活任务被同伴误杀（ADR-0034）</strong>：生成 56 张图表阻塞主循环 74.2 秒，超过 40s（30s + 10s）心跳续租超时，隔壁 Worker 误判其崩溃并将其强行 Cancel。</li></ol>
+<h3>6.2 三级隔离方案</h3>
+<ol><li><strong>I/O 与轻重活 → <code>asyncio.to_thread</code> 线程池</strong>：磁盘读写、Markdown 编译、DuckDB 查询立即让出事件循环。</li><li><strong>纯计算多核并行 → <code>ProcessPoolExecutor</code> / <code>spawn</code> 进程池</strong>：绕开 Python GIL 限制实现真并行，并在多线程服务进程中优先使用 <code>spawn</code>（避开 <code>fork</code> 锁继承死锁及 <code>matplotlib</code> 等 C 扩展全局状态污染），主进程 <code>asyncio</code> 非阻塞等待。</li><li><strong>重型收尾与心跳 → 彻底出进程 / 出循环</strong>：重型收尾拆至独立 <code>deerflow-landing-worker</code> 进程（ADR-0009）；存活探针心跳放进独立 <code>threading.Thread</code>（ADR-0034），不再受主循环抖动牵连。</li></ol>
+<h2>7. 两节点 ReAct 如何实现严格状态机</h2>
+<p>传统 <code>StateGraph</code> 多节点连线像「过山车轨道」，用户半路追问细节就会卡死。现在采用<strong>「两节点开放世界（<code>model ↔ tools</code>）+ <code>ThreadState</code> 状态栏 + Middleware 门卫」</strong>：</p>
+<ol><li><strong><code>ThreadState</code> = 玩家“状态栏”</strong>：通过带 Reducer 的字段承载状态机进度，包括 <code>pipeline_control</code>（<code>stage</code> 关卡与 <code>budget</code> 重试预算）、<code>pending_ask</code>（带 <code>request_id</code> 防旧请求误清）、<code>analysis_lifecycle</code>（带 <code>_producer_proof</code> 防伪校验）与 <code>analysis_events</code>。</li><li><strong>Tool 返回 <code>Command(update=...)</code> = “通关改状态栏”</strong>：工具执行完毕后返回 <code>Command</code> 更新 <code>pipeline_control.stage</code>。</li><li><strong>三道核心 Middleware 门卫</strong>：</li></ol>
+<ul><li><strong><code>StageScopedToolMiddleware</code></strong>：在 <code>awrap_model_call</code> 读取 <code>ThreadState</code> 与 DB 进度取最高阶段，动态改写 <code>request.tools</code> 隐藏未解锁工具，条件满足则放开同类工具由 LLM 自由推导。</li><li><strong><code>ScopeCardCommitMiddleware</code></strong>：前端提交交互卡片后，在 <code>abefore_agent</code> 直接落库并在 <code>gaps == 0</code> 时跑完计算流水线，省去 1–2 轮多余 Function Calling。</li><li><strong><code>RunBudgetMiddleware</code> / <code>ExplanationVerificationGate</code></strong>：同参数连错 2 次后第 3 次直接熔断；最终正文输出前对照账本数字做溯源拦截。</li></ul>
+<h3>7.1 为什么状态要拆分 <code>ThreadState</code> 与 Postgres DB 两半放？</h3>
+<div class="table-wrap"><table><thead><tr><th>存储载体</th><th>定位与职责</th><th>典型内容</th><th>原因</th></tr></thead><tbody><tr><td><code>ThreadState</code>（Checkpointer）</td><td>这一趟 Agent 对话的<strong>控制态</strong></td><td><code>pipeline_control</code>（stage / budget）、<code>pending_ask</code></td><td>随 LangGraph Checkpointer 在每轮 <code>model ↔ tools</code> 间高频读写与恢复</td></tr><tr><td><code>Postgres DB</code></td><td>科研/业务实体的<strong>事实态</strong></td><td><code>AnalysisScope</code>（gaps / revision）、<code>SqlLedger</code>（<code>FactStatus</code>）</td><td>需跨会话复用、支撑前端 Canvas 展示，并在重启后作为唯一权威数据源</td></tr></tbody></table></div>
+<h2>8. Agent 运行时四层心智模型</h2>
 <h3>第 1 层：Run Envelope（执行环境边界）</h3>
 <p>定义单次运行的身份、Thread、Project、Workspace、Sandbox 与权限边界。Runtime Context 不是 Agent 所需的全部背景知识，而是本次执行的环境信封。</p>
 <h3>第 2 层：Graph（底层控制流与数据流）</h3>
