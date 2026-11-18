@@ -10,8 +10,8 @@
   "projectUrl": "https://livevents.app",
   "projectDomain": "livevents.app",
   "summary": [
-    "AI Agent 与全栈研发经验，负责 2 个生产级平台从数据建模、API、前端到测试上线的完整交付。",
-    "擅长在数据密集型、强可追溯场景中把 LLM 能力落成可验证功能：用类型、校验、评测与 E2E 测试构成 Agent 反馈回路（harness）。"
+    "机器学习和全栈背景的 AI Agent 开发工程师：擅长将复杂真实业务落地为可验证、可观测的工程系统，独立完成从架构设计到生产级 Agent 平台交付。",
+    "英语流利，具备丰富的跨国团队协作经验；深度使用 AI 辅助开发，熟练运用各类 Coding Agent，对不同层级模型的选型与协同研发有深入实践。"
   ],
   "experiences": [
     {
@@ -20,18 +20,18 @@
       "role": "AI Agent 开发工程师",
       "location": "北京",
       "featured": true,
-      "duty": "独立负责 EthoInsight 行为学 AI Agent 平台，从 0 到 1 交付数据管线、统计分析与可追溯报告。",
+      "duty": "独立负责行为学研究领域的 AI Agent 从零到一的开发和落地交付。",
       "highlights": [
         {
-          "title": "EthoInsight — 行为学数据分析 Agent",
-          "detail": "基于 LangGraph 开发行为学端到端数据分析 Agent，设计「AI 推理 + 确定性计算」架构：AI 负责理解与解读，数字与统计结论由确定性引擎生成并留痕，确保输出结果可溯源。"
+          "title": "EthoInsight — 首个行为学数据分析 Agent",
+          "detail": "基于 LangGraph 搭建行为学分析 Agent，拆解分析流程并工程化为 Harness 管线：构建外置事实与溯源账本、确定性统计引擎与 Parquet/DuckDB 查询面、数字溯源校验及声明式 Middleware 护栏等 Agent Infra，实现推理与计算分离，保障数值零幻觉与全链路可溯源；沉淀领域 Skill 并做专项优化，提升多步分析与工具调用稳定性。"
         },
         {
-          "title": "Agent 评测与迭代",
-          "detail": "与行为学同事共建 eval 与 golden case，把专家判读标准转化为可自动评分的 benchmark，生成高质量 SFT 轨迹，用于 Qwen 27B 的 SFT + RL 后训练。"
+          "title": "Agent 评测与后训练闭环",
+          "detail": "与行为学同事共建 Agent 运行场景的 Golden Case，将专家判读标准沉淀为可自动评分的端到端 Benchmark，搭建覆盖 12 类范式的自动化 E2E 回归体系；同时采集全链路运行 Trace 实现可观测与 Bad Case 归因，经自动评分器筛选高质量执行轨迹并复用评分信号作为 Reward，用于 Qwen 27B 的 SFT + RL 后训练。"
         }
       ],
-      "tags": ["LangGraph", "Eval & Harness", "Qwen 27B SFT+RL"]
+      "tags": ["LangGraph", "Harness & Ledger", "Eval & E2E", "Qwen 27B SFT+RL"]
     },
     {
       "company": "蓝色光标（BlueFocus）",
@@ -39,18 +39,22 @@
       "role": "Agent 开发工程师",
       "location": "北京",
       "featured": false,
-      "duty": "负责 AI Agent 视频生成应用 KOX 的多智能体管线与运行时服务。",
+      "duty": "负责 AI 短视频应用 KOX 的多智能体管线与运行时服务，并搭建短视频素材复用与热点自动成片系统。",
       "highlights": [
         {
           "title": "KOX — 多智能体视频生成",
-          "detail": "基于 Strands Agents 与 AWS Bedrock AgentCore 搭建多智能体视频管线，编排导演、拍摄、后期三类 Agent，打通从脚本到成片的生产流程。"
+          "detail": "基于 Strands Agents 与 AWS Bedrock AgentCore 编排导演、拍摄、后期三类 Agent，串联可灵（生图）、Seedance（视频生成）与 Fish Audio（TTS）等多模态工具链，通过结构化产物接力与异步调度打通从脚本到成片的 AI 视频生产管线。"
         },
         {
-          "title": "Agent 运行时工具链",
-          "detail": "基于 AWS 生态，搭建 Agent 运行时工具链，覆盖工具调用、异步任务、状态持久化与 RBAC，配合 FastAPI、Celery 与 PostgreSQL 支撑生产级交付。"
+          "title": "KOX — 运行时后端与网关服务",
+          "detail": "基于 FastAPI、Celery、PostgreSQL 与 AWS 生态（Cognito、DynamoDB、ECS）构建运行时后端与网关服务，覆盖 SSE 流式交互与状态同步、异步长任务调度、Session 持久化、RBAC 权限控制与限流熔断，支撑高可用交付。"
+        },
+        {
+          "title": "短视频素材复用与热点自动成片管线",
+          "detail": "基于 FFmpeg 与 LLM 对存量视频进行切分、语义自动标注与重分类，沉淀碎片化素材资产库；构建热点解析 Agent 拆解每日热点并生成脚本，通过 Agentic RAG 检索召回对应标注素材，联动 FFmpeg 自动拼接成片并接入 TTS 配音，实现热点短视频全自动生产与分发。"
         }
       ],
-      "tags": ["Strands Agents", "Bedrock AgentCore", "FastAPI · Celery · PostgreSQL"]
+      "tags": ["Strands Agents", "Bedrock AgentCore", "Agentic RAG", "FastAPI · Celery · AWS"]
     },
     {
       "company": "哈斯科铁路（Harsco Rail）",
@@ -58,18 +62,18 @@
       "role": "全栈工程师",
       "location": "北京",
       "featured": false,
-      "duty": "协助打磨控制软件的本地化适配与联调，负责车辆实时数据平台的全栈开发。",
+      "duty": "负责车辆实时数据平台全栈研发，并承担钢轨打磨控制软件的中美协同本地化适配与联调。",
       "highlights": [
         {
           "title": "车辆实时数据平台",
-          "detail": "基于卫星定位与 Jupiter II CAN 网关协议，负责卫星数据接口（Webhook/API）对接、后端 API、数据入库与 Web 实时监控看板；与中美团队对接 API 与需求。"
+          "detail": "基于 Spring Boot 对接卫星定位 Webhook/API 与 Jupiter II CAN 总线网关协议，完成车载工况与打磨参数的解析、清洗入库及接口开发；使用 React 构建车辆位置、设备状态与打磨参数的准实时 Web 监控看板，支撑远程运维诊断，并作为中方技术对接人协同美国研发团队对齐 API 契约与需求落地。"
         },
         {
           "title": "钢轨打磨控制软件",
-          "detail": "协助开发钢轨打磨车控制软件，参与需求对接、模块开发与联调测试。"
+          "detail": "基于 C 语言承担钢轨打磨车控制软件的本地化功能模块开发与软硬件联调，面向国内铁路运维场景完成适配改造及现场测试交付。"
         }
       ],
-      "tags": ["Web Dashboard", "Webhook / CAN", "Full-Stack"]
+      "tags": ["Spring Boot", "React", "C", "Webhook / CAN"]
     },
     {
       "company": "中国融通科学研究院（Rongtong Research Institute）",
@@ -87,11 +91,11 @@
       "role": "实习 & 全栈工程师",
       "location": "美国",
       "featured": false,
-      "duty": "负责基于传统机器学习与传感器数据的养老院异常风险预警系统，覆盖模型训练、后端服务与前端看板。",
+      "duty": "负责面向养老院场景的传感器异常风险预警系统，承担数据建模、遥测后端与实时看板全栈研发。",
       "highlights": [
         {
           "title": "养老院异常风险预警系统",
-          "detail": "基于 Scikit-learn（决策树、随机森林、逻辑回归）预测老人未来 10–15 分钟身体异常风险，端到端完成数据清洗、特征工程、训练与部署；用 Python + Angular 构建传感器遥测后端与实时看板。"
+          "detail": "基于 Scikit-learn（逻辑回归、决策树、随机森林）对多源生理与定位传感器数据开展清洗、时序特征工程与建模训练，实现未来 10–15 分钟健康异常风险预测；完成模型推理服务化部署，并基于 Python 与 Angular 构建传感器遥测后端及实时监控看板，将预测结果转化为分级预警通知，辅助护理人员提前干预。"
         }
       ],
       "tags": ["Scikit-learn", "Python", "Angular"]

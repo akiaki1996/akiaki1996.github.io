@@ -201,7 +201,7 @@ function buildHomePage(resume, notes, readingList) {
             <span class="aki-tag">CV · 2026</span>
           </div>
           <h2 style="margin: 0; font-size: 20px; line-height: 1.35;">个人简历与技术履历</h2>
-          <p style="margin: 0; font-size: 14px; color: var(--ink-secondary);">涵盖诺达思 EthoInsight、蓝色光标 KOX 多智能体管线、哈斯科铁路实时数据平台、Inovonics 及独立项目 ${escapeHtml(resume.projectDomain)}。</p>
+          <p style="margin: 0; font-size: 14px; color: var(--ink-secondary);">涵盖诺达思 EthoInsight、蓝色光标 KOX 与热点视频管线、哈斯科铁路实时数据平台、Inovonics 及独立项目 ${escapeHtml(resume.projectDomain)}。</p>
           <div class="tag-row">
             <span class="aki-tag">LangGraph</span>
             <span class="aki-tag">Python</span>
