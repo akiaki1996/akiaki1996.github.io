@@ -135,6 +135,62 @@
 
     </section>
 
+    <section style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--line-strong); padding-top: 12px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent);">04 / CURRENTLY READING</span>
+          <h2 style="margin: 0; font-size: 20px; font-weight: 600;">最近在读</h2>
+        </div>
+        <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">READING DESK · 2 ITEMS</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 24px;">
+        <article style="background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">R-01 / walkinglabs.github.io/hands-on-modern-rl</span>
+              <x-import component-from-global-scope="AkiSwiss.Tag" tone="accent">READING</x-import>
+            </div>
+            <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600;">
+              <a href="https://walkinglabs.github.io/hands-on-modern-rl/preface/introduction">Hands-on Modern RL · 现代强化学习实战 ↗</a>
+            </h3>
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">前言与强化学习导论（从代码到原理）</span>
+            <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">从代码实现到数学原理系统梳理现代强化学习，重点结合 Agentic RL 后训练与策略收敛视角阅读。</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px;">
+              <x-import component-from-global-scope="AkiSwiss.Tag">Reinforcement Learning</x-import>
+              <x-import component-from-global-scope="AkiSwiss.Tag">Agentic RL</x-import>
+            </div>
+          </div>
+          <div style="padding-top: 14px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">外部精读文档</span>
+            <a href="https://walkinglabs.github.io/hands-on-modern-rl/preface/introduction" style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">正在阅读 ↗</a>
+          </div>
+        </article>
+
+        <article style="background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">R-02 / walkinglabs.github.io/learn-harness-engineering</span>
+              <x-import component-from-global-scope="AkiSwiss.Tag" tone="accent">READING</x-import>
+            </div>
+            <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600;">
+              <a href="https://walkinglabs.github.io/learn-harness-engineering/">Learn Harness Engineering ↗</a>
+            </h3>
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">Environments, State, Verification &amp; Control Systems</span>
+            <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-secondary);">围绕环境、状态、验证与控制系统的项目制工程教程，系统拆解让 Codex 与 Claude Code 等 Agent 可靠落地的底层机制。</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px;">
+              <x-import component-from-global-scope="AkiSwiss.Tag">Harness Engineering</x-import>
+              <x-import component-from-global-scope="AkiSwiss.Tag">Agent Runtime</x-import>
+            </div>
+          </div>
+          <div style="padding-top: 14px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">外部精读文档</span>
+            <a href="https://walkinglabs.github.io/learn-harness-engineering/" style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">正在阅读 ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <footer style="padding-top: 24px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">
       <span>© 2026 王秋扬 (Aki) · akiaki1996.github.io</span>
       <div style="display: flex; flex-wrap: wrap; gap: 16px;">
@@ -147,7 +203,7 @@
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Appearance"},"$preview":{"width":1360,"height":1220}}'>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Appearance"},"$preview":{"width":1360,"height":1560}}'>
 class Component extends DCLogic {
   renderVals() {
     var activeTheme = this.state.themeOverride || this.props.theme || "light";

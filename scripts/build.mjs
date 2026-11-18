@@ -135,7 +135,7 @@ function renderLayout({ title, description, activeNav, resume, content }) {
 `;
 }
 
-function buildHomePage(resume, notes) {
+function buildHomePage(resume, notes, readingList) {
   const noteLinks = notes
     .slice(0, 3)
     .map(
@@ -145,6 +145,31 @@ function buildHomePage(resume, notes) {
       </a>`
     )
     .join('\n          ');
+
+  const readingHtml = readingList
+    .map(
+      (item) => `<article class="card card-left-accent card-between" style="padding: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--accent);">${escapeHtml(item.index)} / ${escapeHtml(item.source)}</span>
+            <span class="aki-tag aki-tag-accent">${escapeHtml(item.status)}</span>
+          </div>
+          <h3 style="margin: 0; font-size: 19px; line-height: 1.35;">
+            <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)} ↗</a>
+          </h3>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted);">${escapeHtml(item.subtitle)}</div>
+          <p style="margin: 0; font-size: 14px; color: var(--ink-secondary);">${escapeHtml(item.note)}</p>
+          <div class="tag-row">
+            ${(item.tags || []).map((t) => `<span class="aki-tag">${escapeHtml(t)}</span>`).join('')}
+          </div>
+        </div>
+        <div class="card-foot">
+          <span style="color: var(--ink-muted);">外部精读文档</span>
+          <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">正在阅读 ↗</a>
+        </div>
+      </article>`
+    )
+    .join('\n      ');
 
   const content = `
     <section class="hero-grid">
@@ -226,6 +251,19 @@ function buildHomePage(resume, notes) {
           <a href="/life/#glasses" style="color: var(--accent);">查看原图与生活 →</a>
         </div>
       </article>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 20px; margin-top: 44px;">
+      <div class="section-head">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="kicker">04 / CURRENTLY READING</span>
+          <h2>最近在读</h2>
+        </div>
+        <span class="section-head-en">READING DESK · ${readingList.length} ITEMS</span>
+      </div>
+      <div class="two-col-grid">
+        ${readingHtml}
+      </div>
     </section>
   `;
 
@@ -507,6 +545,7 @@ function build404Page(resume) {
 
 export function buildSite() {
   const resume = JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, 'resume.json'), 'utf8'));
+  const readingList = JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, 'reading.json'), 'utf8'));
   const notes = loadMarkdownCollection(path.join(CONTENT_DIR, 'notes'));
   const lifePosts = loadMarkdownCollection(path.join(CONTENT_DIR, 'life'));
 
@@ -518,7 +557,7 @@ export function buildSite() {
   copyDir(path.join(SRC_DIR, 'assets'), path.join(PUBLIC_DIR, 'assets'));
 
   fs.writeFileSync(path.join(PUBLIC_DIR, '.nojekyll'), '');
-  fs.writeFileSync(path.join(PUBLIC_DIR, 'index.html'), buildHomePage(resume, notes));
+  fs.writeFileSync(path.join(PUBLIC_DIR, 'index.html'), buildHomePage(resume, notes, readingList));
 
   ensureDir(path.join(PUBLIC_DIR, 'resume'));
   fs.writeFileSync(path.join(PUBLIC_DIR, 'resume', 'index.html'), buildResumePage(resume));

@@ -21,5 +21,6 @@ npm run deploy  # 构建并推送 public/ 至 origin/deployment 分支
 
 1. **新增开发 Note**：在 `content/notes/` 下新建 `.md` 文件，加上 `id`、`index`、`title`、`date`、`category`、`tags`、`summary` 的 frontmatter 后运行 `npm run build`。
 2. **新增生活记录**：在 `content/life/` 下新建 `.md` 文件。
-3. **更新简历**：编辑 `content/resume.json`。
-4. **设计稿与 Design System**：保留在 `designs/aki-swiss-ds/` 与 `designs/aki-personal-site/`。
+3. **更新首页「最近在读」**：编辑 `content/reading.json`。
+4. **更新简历**：编辑 `content/resume.json`。
+5. **设计稿与 Design System**：保留在 `designs/aki-swiss-ds/` 与 `designs/aki-personal-site/`。

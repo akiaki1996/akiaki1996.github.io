@@ -1,0 +1,22 @@
+[
+  {
+    "index": "R-01",
+    "status": "READING",
+    "title": "Hands-on Modern RL · 现代强化学习实战",
+    "subtitle": "前言与强化学习导论（从代码到原理）",
+    "url": "https://walkinglabs.github.io/hands-on-modern-rl/preface/introduction",
+    "source": "walkinglabs.github.io/hands-on-modern-rl",
+    "tags": ["Reinforcement Learning", "Agentic RL"],
+    "note": "从代码实现到数学原理系统梳理现代强化学习，重点结合 Agentic RL 后训练与策略收敛视角阅读。"
+  },
+  {
+    "index": "R-02",
+    "status": "READING",
+    "title": "Learn Harness Engineering",
+    "subtitle": "Environments, State, Verification & Control Systems",
+    "url": "https://walkinglabs.github.io/learn-harness-engineering/",
+    "source": "walkinglabs.github.io/learn-harness-engineering",
+    "tags": ["Harness Engineering", "Agent Runtime"],
+    "note": "围绕环境、状态、验证与控制系统的项目制工程教程，系统拆解让 Codex 与 Claude Code 等 Agent 可靠落地的底层机制。"
+  }
+]
